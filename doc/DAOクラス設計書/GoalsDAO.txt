@@ -1,0 +1,4 @@
+作成者：浦島
+クラス名：	GoalsDAO
+メソッド：	select(Goal card) //目標設定情報検索メソッド（mailAddressで検索）　
+		update(Goal card) //目標設定情報更新メソッド（mailAddressごとに睡眠時間目標、食事バランス目標、自由目標、自由記述目標を更新）
