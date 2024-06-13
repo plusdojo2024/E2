@@ -1,7 +1,7 @@
 package model;
 import java.io.Serializable;
 
-public class Human implements Serializable {
+public class Humans implements Serializable {
 	//ここにデータベースのテーブルの中身を追加する
 	//上から順番追加
 	private int id;
@@ -9,24 +9,24 @@ public class Human implements Serializable {
 	private String day;
 	private int height;
 	private int weight;
-	private int sleepTimes;
+	private int sleepTime;
 
 
 	//引数がないコンストラクタ
-	public Human() {
+	public Humans() {
 
 	}
 
 	//引数があるコンストラクタ
     //ソースのフィールドを指定してコンストラクタを生成で行う
-	public Human(int id, String mail_address, String day, int height, int weight, int sleep_times) {
+	public Humans(int id, String mail_address, String day, int height, int weight, int sleep_time) {
 		super();
 		this.id = id;
 		this.mailAddress = mail_address;
 		this.day = day;
 		this.height = height;
 		this.weight = weight;
-		this.sleepTimes = sleep_times;
+		this.sleepTime = sleep_time;
 	}
 
 	public int getId() {
@@ -69,12 +69,12 @@ public class Human implements Serializable {
 		this.weight = weight;
 	}
 
-	public int getSleepTimes() {
-		return sleepTimes;
+	public int getSleepTime() {
+		return sleepTime;
 	}
 
-	public void setSleepTimes(int sleepTimes) {
-		this.sleepTimes = sleepTimes;
+	public void setSleepTime(int sleepTime) {
+		this.sleepTime = sleepTime;
 	}
 
 }

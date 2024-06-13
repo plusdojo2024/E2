@@ -1,0 +1,4 @@
+作成者：	山本
+クラス名：	Meal
+メソッド：	Meal() //コンストラクタ
+		Meal(int id, String mailAddress, String day, String meal, String mealBalance, int kcal, int mealNumber) //コンストラクタ

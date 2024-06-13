@@ -16,7 +16,6 @@ public class Meal implements Serializable {
   }
 
 public Meal(int id, String mailAddress, String day, String meal, String mealBalance, int kcal, int mealNumber) {
-	super();
 	this.id = id;
 	this.mailAddress = mailAddress;
 	this.day = day;
