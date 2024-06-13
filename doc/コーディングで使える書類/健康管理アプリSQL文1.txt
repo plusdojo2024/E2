@@ -1,0 +1,45 @@
+//usersテーブル
+
+SELECT * FROM users WHERE mail_address LIKE ? AND password LIKE ? ORDER BY id;
+
+SELECT * FROM users WHERE mail_address LIKE  ? ORDER BY id; 
+
+INSERT INTO login (mail_address, login_day) VALUES (null, ?, ?);
+
+UPDATE users SET point=?,character1=? WHERE mail_address=?;
+
+UPDATE users SET point=?,character2=? WHERE mail_address=?;
+
+UPDATE users SET point=?,character3=? WHERE mail_address=?;
+
+UPDATE users SET point=? WHERE mail_address=?;
+
+UPDATE users SET character1=? WHERE mail_address=?;
+
+UPDATE users SET character2=? WHERE mail_address=?;
+
+UPDATE users SET character3=? WHERE mail_address=?;
+
+//mealsテーブル
+SELECT * FROM  meals WHERE mail_address LIKE ? AND password LIKE ? ORDER BY id;
+
+INSERT INTO meals (mail_address, password, day, meal, meal_balance, kcal, meal_number) VALUES (null, ?, ?, ?, ?, ?, ?, ?);
+
+DELETE FROM  meals WHERE mail_address = ?  AND day = ?:
+
+//loginテーブル
+SELECT * FROM login WHERE mail_address LIKE ? ORDER BY id;
+
+INSERT INTO login (mail_address, login_day) VALUES (null, ?, ?);
+
+//humansテーブル
+SELECT FROM  humans WHERE mail_address LIKE ? AND password LIKE ? ORDER BY id;
+
+INSERT INTO humans (mail_address, password, day, height, weight, sleep_time) VALUES (null, ?, ?, ?, ?, ?, ?);
+
+DELETE FROM humans WHERE mail_address = ? AND day = ?:
+
+//goalsテーブル
+SELECT * FROM goals WHERE mail_address LIKE ? ORDER BY id;
+
+UPDATE goals SET sleep_goal=?,meal_goal=?,free_goal=?,write_free_goal=? WHERE mail_address=?;

@@ -1,0 +1,168 @@
+/*健康管理アプリのSQL文*/
+SELECT * FROM users;
+
+SELECT * FROM login;
+
+SELECT * FROM humans;
+
+SELECT * FROM meals;
+
+SELECT * FROM goals;
+
+
+
+/*users テーブルを作成*/
+CREATE TABLE users (
+
+id INTEGER AUTO_INCREMENT, /* 1.ID */
+
+mail_address VARCHAR(255) NOT NULL, /* 2.メールアドレス */
+ 
+password VARCHAR(255) NOT NULL, /* 3.パスワード */
+
+day VARCHAR(20) NOT NULL,/* 4.日付 */
+
+point INTEGER(5), /* 5.ポイント */
+
+character1 INTEGER(5), /* 6.ずんだもん */
+
+character2 INTEGER(5), /* 7.満別花丸 */
+
+character3 INTEGER(5), /* 8.春日部つむぎ */
+
+PRIMARY KEY (id) /*主キー*/
+
+UNIQUE KEY (mail_address)/*uniqueキー*/
+
+);
+
+
+
+/*login テーブルを作成*/
+CREATE TABLE login (
+
+id INTEGER AUTO_INCREMENT, /* 1.ID */
+
+mail_address VARCHAR(255) NOT NULL, /* 2.メールアドレス */
+ 
+login_day VARCHAR(20),/* 3.ログイン日 */
+
+PRIMARY KEY (id) /*主キー*/
+);
+
+
+
+/*humans テーブルを作成*/
+CREATE TABLE humans (
+
+id INTEGER AUTO_INCREMENT, /* 1.ID */
+
+mail_address VARCHAR(255) NOT NULL, /* 2.メールアドレス */
+ 
+day VARCHAR(20) NOT NULL,/* 3.日付 */
+
+height INTEGER(10) NOT NULL, /* 4.身長 */
+
+weight INTEGER(10) NOT NULL, /* 5.体重 */
+
+sleep_time INTEGER(10) NOT NULL, /* 6.睡眠時間 */
+
+PRIMARY KEY (id) /* 主キー*/
+);
+
+
+
+/*meals テーブルを作成*/
+CREATE TABLE meal (
+
+id INTEGER AUTO_INCREMENT, /* 1.ID */
+
+mail_address VARCHAR(255) NOT NULL, /* 2.メールアドレス */
+ 
+day VARCHAR(20) NOT NULL,/* 3.日付 */
+
+meal VARCHAR(30), /* 4.食べたもの */
+
+meal_balance VARCHAR(100) NOT NULL, /* 5.食事バランス */
+
+kcal INTEGER(10), /* 6.カロリー */
+
+meal_number INTEGER(5), /* 7.食事入力回数 */
+
+PRIMARY KEY (id) /* 主キー*/
+);
+
+
+
+/*goals テーブルを作成*/
+CREATE TABLE goals (
+
+id INTEGER AUTO_INCREMENT, /* 1.ID */
+
+mail_address VARCHAR(255) NOT NULL, /* 2.メールアドレス */
+ 
+day VARCHAR(20) NOT NULL,/* 3.日付 */
+
+sleep_goal INTEGER(5), /* 4.睡眠時間目標 */
+
+meal_goal INTEGER(5), /* 5.食事バランス目標 */
+
+free_goal INTEGER(5), /* 6.自由目標 */
+
+write_free_goal VARCHAR(255), /* 7.記述自由目標 */
+
+PRIMARY KEY (id) /* 主キー*/
+);
+
+
+
+/*users テーブルにテスト用のデータを登録*/
+INSERT INTO users (mail_address, password, day, point, character1, character2, character3) VALUES (null, '', '', '', '', '', '', '');
+
+/*login テーブルにテスト用のデータを登録*/
+INSERT INTO login (mail_address, login_day) VALUES (null, '', '');
+
+/*humans テーブルにテスト用のデータを登録*/
+INSERT INTO humans (mail_address, password, day, height, weight, sleep_time) VALUES (null, '', '', '', '', '');
+
+/*meals テーブルにテスト用のデータを登録*/
+INSERT INTO meals (mail_address, password, day, meal, meal_balance, kcal, meal_number) VALUES (null, '', '', '', '', '', '');
+
+/*goals テーブルにテスト用のデータを登録*/
+INSERT INTO goals (mail_address, password, day, sleep_goal, meal_goal, free_goal, write_free_goal) VALUES (null, '', '', '', '', '', '', '');
+
+
+
+/*users テーブルの検索*/
+SELECT * FROM users WHERE mail_address LIKE ? AND password LIKE ? AND day LIKE ? AND point LIKE ? AND character1 LIKE ? AND character2 LIKE ? AND character3 LIKE ? ORDER BY id;
+
+/*login テーブルの検索*/
+SELECT * FROM users WHERE mail_address LIKE ? AND login_day LIKE ? ORDER BY id;
+
+/*humans テーブルの検索*/
+SELECT * FROM users WHERE mail_address LIKE ? AND password LIKE ? AND day LIKE ? AND height LIKE ? AND weight LIKE ? AND sleep_time LIKE ? ORDER BY id;
+
+/*meals テーブルの検索*/
+SELECT * FROM users WHERE mail_address LIKE ? AND password LIKE ? AND day LIKE ? AND meal LIKE ? AND meal_balance LIKE ? AND kcal LIKE ? AND meal_balance LIKE ? ORDER BY id;
+
+/*goals テーブルの検索*/
+SELECT * FROM users WHERE mail_address LIKE ? AND password LIKE ? AND day LIKE ? AND sleep_goal LIKE ? AND meal_goal LIKE ? AND free_goal LIKE ? AND write_free_goal LIKE ? ORDER BY id;
+
+
+
+/*users テーブルの更新*/
+UPDATE users SET mail_address=?,password=?,day=?,point=?,character1=?,character2=?,character3=? WHERE id=?;
+
+/*login テーブルの更新*/
+UPDATE login SET mail_address=?,login_day=? WHERE id=?;
+
+/*humans テーブルの更新*/
+UPDATE humans SET mail_address=?,password=?,day=?,height=?,weight=?,sleep_time=? WHERE id=?;
+
+/*meals テーブルの更新*/
+UPDATE meals SET mail_address=?,password=?,day=?,meal=?,meal_balance=?,kcal=?,meal_balance=? WHERE id=?;
+
+/*goals テーブルの更新*/
+UPDATE goals SET mail_address=?,password=?,day=?,sleep_goal=?,meal_goal=?,free_goal=?,write_free_goal=? WHERE id=?;
+
+
