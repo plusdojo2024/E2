@@ -1,0 +1,5 @@
+作成者：尾森
+クラス名：	HumansDAO
+メソッド：	insert(Meal meal) //生体情報登録メソッド
+		select(Humans card) //生体情報検索メソッド（mailAddressで検索）　		
+		delete(Meal meal) //生体情報削除メソッド（mailAddressごとに一括削除）
