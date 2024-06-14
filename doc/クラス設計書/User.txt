@@ -1,0 +1,4 @@
+作成者：	時田
+クラス名：	User
+メソッド：	User() //コンストラクタ
+		User(int id, String mailAddress, String password, String day, int point,int character1,int character2, int character3) //コンストラクタ

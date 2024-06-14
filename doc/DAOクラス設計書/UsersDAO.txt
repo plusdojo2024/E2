@@ -1,0 +1,16 @@
+作成者：時田
+クラス名：	UsersDAO
+メソッド：
+		selectLogin(User users) //ログインで使うメソッド（mail_addressとpasswordが一対になっているときにログインできる用、mailddressとpasswordのペアの数を検索）
+
+		selectMailAddress(User users) //ユーザーの情報を調べるメソッド（ユーザーのmail_address, password, day, point, character1, character2, character3の情報を、mail_addressで検索）
+		
+		insert(User users) ///ユーザーの追加を行うメソッド　
+
+		updatePoint(User users) //ポイントの更新を行うメソッド（mail_addressごとにpointの情報を更新）
+
+		updateCharacter1(User users) //ずんだもん（character1）の更新を行うメソッド（mail_addressごとにcharacter1の情報を更新）
+
+		updateCharacter2(User users) //満別花丸（character2）の更新を行うメソッド（mail_addressごとにcharacter2の情報を更新）
+
+		updateCharacter3(User users) //春日部つむぎ（character3）の更新を行うメソッド（mail_addressごとにcharacter3の情報を更新）
