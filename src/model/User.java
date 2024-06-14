@@ -6,7 +6,7 @@ import java.io.Serializable;
 public class User implements  Serializable{
 
 	private int id;//ID
-	private String mallAdress;//メールアドレス
+	private String mailAddress;//メールアドレス
 	private String password;//パスワード
 	private String day;//日付
 	private int point;//ポイント
@@ -20,11 +20,11 @@ public class User implements  Serializable{
 	}
 
 	//引数ありコンストラクタ
-	public User(int id, String mallAddress, String password, String day, int point,
+	public User(int id, String mailAddress, String password, String day, int point,
 			int character1,int character2, int character3) {
 		super();
 		this.id = id;
-		this.mallAdress = mallAddress;
+		this.mailAddress = mailAddress;
 		this.password = password;
 		this.day = day;
 		this.point = point;
@@ -42,12 +42,12 @@ public class User implements  Serializable{
 		this.id = id;
 	}
 
-	public String getMallAdress() {
-		return mallAdress;
+	public String getMailAddress() {
+		return mailAddress;
 	}
 
-	public void setMallAdress(String mallAdress) {
-		this.mallAdress = mallAdress;
+	public void setMailAddress(String mailAddress) {
+		this.mailAddress = mailAddress;
 	}
 
 	public String getPassword() {
@@ -99,4 +99,3 @@ public class User implements  Serializable{
 	}
 
 }
-
