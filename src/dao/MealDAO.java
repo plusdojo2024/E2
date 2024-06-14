@@ -139,26 +139,30 @@ public class MealDAO {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/LRD", "sa", "");
 			// SQL文を準備する
-			String sqlSelect = "SELECT * FROM Meals WHERE mail_address = ?";
+			String sqlSelect = "SELECT COUNT(*) AS sum FROM Meals WHERE mail_address = ?";
 			PreparedStatement pStmtSelect = conn.prepareStatement(sqlSelect);
 			// SQL文を完成させる
 			pStmtSelect.setString(1, meal.getMailAddress());
 			ResultSet rsSelect = pStmtSelect.executeQuery();
 
-			int number = 0;
-			while (rsSelect.next()) {
-				number++;
+			rsSelect.next();
+			int number = rsSelect.getInt("sum");
+			//0件でないとき
+			if (number != 0) {
+
+				// SQL文を準備する
+				String sql = "DELETE FROM Meals WHERE mail_address = ?";
+
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる
+				pStmt.setString(1, meal.getMailAddress());
+				// SQL文を実行する
+				if (pStmt.executeUpdate() == number) {
+					result = true;
+				}
 			}
-
-			// SQL文を準備する
-			String sql = "DELETE FROM Meals WHERE mail_address = ?";
-
-			PreparedStatement pStmt = conn.prepareStatement(sql);
-
-			// SQL文を完成させる
-			pStmt.setString(1, meal.getMailAddress());
-			// SQL文を実行する
-			if (pStmt.executeUpdate() == number) {
+			else {
 				result = true;
 			}
 		}

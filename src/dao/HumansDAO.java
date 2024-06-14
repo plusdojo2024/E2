@@ -25,7 +25,7 @@ public class HumansDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/LRD", "sa", "");
 
 
 			// SQL文を準備する（AUTO_INCREMENTのNUMBER列にはNULLを指定する）
@@ -101,7 +101,7 @@ public class HumansDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/LRD", "sa", "");
 
 
 			// SQL文を準備する
@@ -179,7 +179,7 @@ public class HumansDAO {
 			Class.forName("org.h2.Driver");
 
 			// データベースに接続する
-			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/simpleBC", "sa", "");
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/LRD", "sa", "");
 
 			// SQL文を準備する
 			String COUNTS="SELECT COUNT(*) AS sum FROM Humans WHERE mail_address=?";
@@ -196,13 +196,14 @@ public class HumansDAO {
 
 
 //			int number=Integer.parseInt(rs1.beforeFirst());
-			System.out.printf("COUNTS:%d\n", number);
+//			System.out.printf("COUNTS:%d\n", number);
 //			int COUNT = Integer.parseInt(COUNTS);
 
 			// SQL文を実行する
 //			if (pStmtCount.executeUpdate() == number) {
 //				result = true;
 //			}
+			if(number != 0) {
 			String sql = "DELETE FROM Humans WHERE mail_address=?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
@@ -216,6 +217,11 @@ public class HumansDAO {
 			if (pStmt.executeUpdate() == number) {
 				result = true;
 			}
+		}else {
+//			System.out.println("0件削除");
+			result = true;
+		}
+
 
 
 		}
