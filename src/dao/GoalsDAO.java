@@ -164,23 +164,26 @@ public class GoalsDAO {
 			else {
 				pStmt.setString(2, "（未設定）");
 			}
-			if (Objects.equals(card.getSleepGoal(), null)) {
-				pStmt.setInt(3, 0);
+			String getSleepGoal1 = String.valueOf(card.getSleepGoal());
+			if (getSleepGoal1 == null) {
+				pStmt.setInt(3, 1);
 			}
 			else {
-				pStmt.setInt(3, card.getSleepGoal());
+				pStmt.setInt(3, 2);
 			}
-			if (Objects.equals(card.getMealGoal(), null)) {
-				pStmt.setInt(4, 0);
-			}
-			else {
-				pStmt.setInt(4, card.getMealGoal());
-			}
-			if (Objects.equals(card.getFreeGoal(), null)) {
-				pStmt.setInt(5, 0);
+			String mealGoal1 = String.valueOf(card.getMealGoal());
+			if (mealGoal1 == null) {
+				pStmt.setInt(4, 1);
 			}
 			else {
-				pStmt.setInt(5, card.getFreeGoal());
+				pStmt.setInt(4, 2);
+			}
+			String FreeGoal1 = String.valueOf(card.getFreeGoal());
+			if (FreeGoal1 == null) {
+				pStmt.setInt(5, 1);
+			}
+			else {
+				pStmt.setInt(5, 2);
 			}
 			if (card.getWhiteFreeGoal() != null && !card.getWhiteFreeGoal().equals("")) {
 				pStmt.setString(6, card.getWhiteFreeGoal());
