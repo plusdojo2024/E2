@@ -1,0 +1,340 @@
+/*文字設定の基準は 
+小見出しは
+main h2{
+  font-weight: bold;
+  font-size: 24px;
+}
+
+文字は
+main p{
+  font-size: 16px;
+  line-height: 1.8em;
+  margin-bottom: 2.0em;
+} */
+
+/*全画面共通*/
+html{
+  scroll-behavior: smooth;/*ページ内リンクをクリックすると上にスクロールする*/
+}
+
+body{
+    background-color: #50E2F6;
+    max-width: auto;
+}
+
+header{
+
+    height: 50px;
+    background-color: rgba(26, 26, 26,0.53);
+
+}
+
+.wrap {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  main {
+    flex: 1;
+    opacity: 1;
+  }
+
+footer{
+  text-align: center;
+    height: 50px;
+    bottom: 0;
+}
+
+/*mainの設定*/
+main{
+  text-align: center;
+}
+
+.main{
+  margin: auto;
+  width: 90%;
+}
+
+.main div{
+  box-shadow: 4px 4px #2f6aaed4;
+  border-radius: 2%;
+  background-color: #ffffff;
+  margin-bottom: 6%;
+  padding: 5%;
+}
+
+/*イラスト*/
+.main li img{
+  margin-bottom: -20%;
+  margin-left: -70%;
+}
+
+.main li .right{
+  margin-left: 70%;
+}
+
+
+/*ログイン画面共通デザイン*/
+.login header{
+  text-align: center;
+  display: block;
+  padding-bottom: 50%;
+  background-color: #50e3f600;
+}
+
+.login main{
+  background-color: rgba(255, 255, 255);
+  }
+  
+
+/*ログイン、ロゴの位置*/
+
+.login ul{
+  margin-top: 20%;
+  display: inline-block;
+
+}
+
+.login li{
+  display: inline;
+}
+
+/*ホーム、ロゴの位置*/
+
+header img{
+  margin-top: 10px;
+  margin-left: 15px;
+}
+
+/*背景アニメーション*/
+.bg {
+  animation:slide 3s ease-in-out infinite alternate;
+  background-image: linear-gradient(-60deg, #4a9effd4 50%, #50E2F6 50%);
+  bottom:0;
+  left:-50%;
+  opacity:.5;
+  position:fixed;
+  right:-50%;
+  top:0;
+  z-index:-1;
+}
+
+.bg2 {
+  animation-direction:alternate-reverse;
+  animation-duration:4s;
+}
+
+.bg3 {
+  animation-duration:5s;
+}
+
+/*アニメーション部分*/
+@keyframes slide {
+  0% {
+    transform:translateX(-25%);
+  }
+  100% {
+    transform:translateX(25%);
+  }
+}
+
+
+
+
+/*ここからハンバーガメニュー*/
+/*アイコン部分*/
+.hamburger {
+    width: 55px;
+    height: 67px;
+    background-color: #FFC000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: 83%;
+    display: flex;
+    transition: all 0.4s;
+    position: relative;
+    z-index: 30;
+    border-radius: 12px;
+  }
+  
+  .checkbox:checked ~ .hamburger {
+    transform: rotate(360deg);
+  }
+  
+  /*ハンバーガメニューの三本線*/
+  .hamburger .bar {
+    width: 40px;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+    display: block;
+    position: absolute;
+  }
+  
+  .hamburger .bar-top {
+    transform: translate(0, -10px) rotate(0);
+    transition: all 0.4s;
+  }
+  
+  .hamburger .bar-middle {
+    transition: all 0.4s;
+    opacity: 1;
+  }
+  
+  .hamburger .bar-bottom {
+    transform: translate(0, 10px) rotate(0);
+    transition: all 0.4s;
+  }
+
+  
+    /*アイコンクリック時の変形*/
+  .checkbox:checked ~ .hamburger .bar-middle {
+    opacity: 0;
+  }
+
+  
+  /*アイコンのクロスの角度*/
+  .checkbox:checked ~ .hamburger .bar-top {
+    transform: translate(0, 0) rotate(-45deg);
+  }
+  
+
+  .checkbox:checked ~ .hamburger .bar-bottom {
+    transform: translate(0, 0) rotate(45deg);
+  }
+  
+  .checkbox {
+    display: none;
+  }
+
+  /*ナビゲーション部分*/
+  
+  .nav-menu {
+    position: absolute;
+    width: 30%;
+    height: auto;
+    opacity: 0;
+    color: #333;
+    top: 0;
+    left: 0;
+    margin-left: 65%;
+    margin-top: 120px;
+    transition: all 0.3s;
+  }
+  
+  .nav-menu ul {
+    text-align: right;
+    margin-top: 30%;
+    position: relative;
+  }
+  
+  /*文字の間隔*/
+  .nav-menu li {
+    text-align: center;
+    padding-bottom: 40%;
+  }
+
+  /*ハンバーガメニューの文字の設定*/
+  .nav-menu a {
+    color: #ffffff;
+    text-align: left;
+    margin-left: 2%;
+    font-size: 110%;
+    font-weight: bold;
+    Text-decoration:none;
+    /*ホバー時の文字拡大*/
+    display: inline-block;       
+    transition: all 0.3s ease 0s;
+    cursor: pointer
+  }
+
+
+ /*クリック時に文字の拡大、色を変更*/
+a:active{
+  cursor: pointer;
+  transform: scale(1.2, 1.2);
+  color: #fec20d;
+  /*一番前に表示*/
+  z-index: 1;
+}
+  
+  .checkbox:checked ~ .nav-menu {
+
+    background-color: #5a5a5a86;
+    opacity: 1;
+    /*一番前に表示*/
+    z-index: 1;
+  }
+
+/*ここまでが全画面共通*/
+
+/*ホームと音声ショップのスライド*/
+#slide{
+
+	position:relative;
+	overflow:hidden;
+	height:200px;
+}
+
+#slide ul{
+	position:absolute;
+	width:100%;
+}
+
+#slide li{
+  text-align: center;
+  margin: 0;
+  padding: 0;
+	float:left;
+	width:100%;
+	list-style-type:none;
+  z-index: 10;
+
+}
+
+#slide  li img{
+  box-shadow: 4px 0px #2f6aaed4;
+}
+
+/*ボタンの設定*/
+
+#button{
+  position: relative;
+  z-index: 2;
+  margin-top: -25px;
+  margin-bottom: 0;
+	text-align:center;
+}
+
+#button ul{
+	display:inline-block;
+}
+
+#button ul li{
+	float:left;
+	margin-right:15px;
+}
+
+#button ul li:last-child{
+	margin-right:0;
+}
+
+#button ul li a{
+	text-indent:-9999px;
+	text-decoration:none;
+	display:block;
+	width:14px;
+	height:14px;
+	border-radius:7px;
+	background:#ffecb2c1;
+}
+
+#button ul li a.target{
+	background:#fec20d;
+}
+
+/*ここまでがスライド*/
+

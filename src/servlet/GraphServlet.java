@@ -63,8 +63,10 @@ public class GraphServlet extends HttpServlet {
 			humans.setMailAddress(loginUser.getMailAddress());
 			humans.setDay(day.get(x));
 			List<Humans> selectList = humansDAO.select(humans);
-			for (int y = 0; y < selectList.size(); y++) {
-				humansList.add(selectList.get(y));
+			if (selectList != null) {
+				for (int y = 0; y < selectList.size(); y++) {
+					humansList.add(selectList.get(y));
+				}
 			}
 		}
 		request.setAttribute("humans", humansList);
@@ -76,8 +78,10 @@ public class GraphServlet extends HttpServlet {
 			Meal meal = new Meal();
 			meal.setMailAddress(loginUser.getMailAddress());
 			List<Meal> selectList = mealDAO.select(meal);
-			for (int y = 0; y < selectList.size(); y++) {
-				mealsList.add(selectList.get(y));
+			if (selectList != null) {
+				for (int y = 0; y < selectList.size(); y++) {
+					mealsList.add(selectList.get(y));
+				}
 			}
 		}
 		request.setAttribute("meals", mealsList);
