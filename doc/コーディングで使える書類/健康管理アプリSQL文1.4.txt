@@ -1,0 +1,215 @@
+/*健康管理アプリのSQL文*/ 
+
+/*usersテーブル*/ 
+/*テーブル作成ここから*/
+
+/*users テーブルを作成*/
+CREATE TABLE users (
+
+id INTEGER AUTO_INCREMENT, /* 1.ID */
+
+mail_address VARCHAR(255)  NOT NULL, /* 2.メールアドレス */
+ 
+password VARCHAR(255) NOT NULL, /* 3.パスワード */
+
+day VARCHAR(20),/* 4.日付 */
+
+point INTEGER(5), /* 5.ポイント */
+
+character1 INTEGER(5), /* 6.ずんだもん */
+
+character2 INTEGER(5), /* 7.満別花丸 */
+
+character3 INTEGER(5), /* 8.春日部つむぎ */
+
+PRIMARY KEY (id) /*主キー*/
+
+);
+
+/*mail_addressをUniqueキーへ変更*/
+ALTER  TABLE  users  ADD   UNIQUE(mail_address);
+
+/*users テーブルにテスト用のデータを登録*/
+INSERT INTO users (id, mail_address, password, day, point, character1, character2, character3) VALUES (null, 'mail_address', 'password', 'day', 0, 0, 0, 0);
+
+/*users テーブル表示*/
+SELECT * FROM users;
+
+/*テーブル作成ここまで*/
+
+/*UsersDAOで使用したSQL文*/
+
+SELECT COUNT(*) FROM users WHERE mail_address = ? AND password = ?;
+
+SELECT * FROM users WHERE mail_address =  ? ORDER BY id;
+
+INSERT INTO users (id, mail_address, password, day, point, character1, character2, character3) VALUES (null, ?, ?, ?, ?, ?, ?, ?);
+
+UPDATE users SET point= ? WHERE mail_address= ?;
+
+UPDATE users SET character1= ? WHERE mail_address= ?;
+
+UPDATE users SET character2= ? WHERE mail_address= ?;
+
+UPDATE users SET character3= ? WHERE mail_address= ?;
+
+
+
+
+
+/*loginテーブル*/ 
+/*テーブル作成ここから*/
+
+/*login テーブルを作成*/
+CREATE TABLE login (
+
+id INTEGER AUTO_INCREMENT, /* 1.ID */
+
+mail_address VARCHAR(255) NOT NULL, /* 2.メールアドレス */
+ 
+login_day VARCHAR(20),/* 3.ログイン日 */
+
+PRIMARY KEY (id) /*主キー*/
+);
+
+/*login テーブルにテスト用のデータを登録*/
+INSERT INTO login (id, mail_address, login_day) VALUES (null, 'mail_address', 'login_day');
+
+/*login テーブル表示*/
+SELECT * FROM login;
+
+/*テーブル作成ここまで*/
+
+/*LoginDAOで使用したSQL文*/
+SELECT * FROM Login WHERE mail_address = ?;
+
+INSERT INTO Login VALUES (NULL, ?, ?);
+
+
+
+
+
+/*humansテーブル*/ 
+/*テーブル作成ここから*/
+
+/*humans テーブルを作成*/
+CREATE TABLE humans (
+
+id INTEGER AUTO_INCREMENT, /* 1.ID */
+
+mail_address VARCHAR(255) NOT NULL, /* 2.メールアドレス */
+ 
+day VARCHAR(20) NOT NULL,/* 3.日付 */
+
+height INTEGER(10) NOT NULL, /* 4.身長 */
+
+weight INTEGER(10) NOT NULL, /* 5.体重 */
+
+sleep_time INTEGER(10) NOT NULL, /* 6.睡眠時間 */
+
+PRIMARY KEY (id) /* 主キー*/
+
+);
+
+/*humans テーブルにテスト用のデータを登録*/
+INSERT INTO humans (id, mail_address, day, height, weight, sleep_time) VALUES (null, 'mail_address', 'day', 0, 0, 0);
+
+/*humans テーブル表示*/
+SELECT * FROM humans;
+
+/*テーブル作成ここまで*/
+
+/*HumansDAOで使用したSQL文*/
+INSERT INTO Humans VALUES (NULL, ?, ?, ?, ?, ?);
+
+SELECT * FROM Humans WHERE mail_address = ? AND day = ? ORDER BY id;
+
+SELECT COUNT(*) AS sum FROM Humans WHERE mail_address=?;
+
+DELETE FROM Humans WHERE mail_address=?;
+
+
+
+
+
+/*mealsテーブル*/
+/*テーブル作成ここから*/
+
+/*meals テーブルを作成*/
+CREATE TABLE meals (
+
+id INTEGER AUTO_INCREMENT, /* 1.ID */
+
+mail_address VARCHAR(255) NOT NULL, /* 2.メールアドレス */
+ 
+day VARCHAR(20) NOT NULL,/* 3.日付 */
+
+meal VARCHAR(30), /* 4.食べたもの */
+
+meal_balance VARCHAR(100) NOT NULL, /* 5.食事バランス */
+
+kcal INTEGER(10), /* 6.カロリー */
+
+meal_number INTEGER(5), /* 7.食事入力回数 */
+
+PRIMARY KEY (id) /* 主キー*/
+
+);
+
+/*meals テーブルにテスト用のデータを登録*/
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'mail_address', 'day', 'meal', 'meal_balance', 0, 0);
+
+/*meals テーブル表示*/
+SELECT * FROM meals;
+
+/*テーブル作成ここまで*/
+
+/*MealsDAOで使用したSQL文*/
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, ?, ?, ?, ?, ?, ?);
+
+SELECT * FROM Meals WHERE mail_address = ?;
+
+DELETE FROM Meals WHERE mail_address = ?;
+
+
+
+
+
+/*goalsテーブル*/ 
+/*テーブル作成ここから*/
+
+/*goals テーブルを作成*/
+CREATE TABLE goals (
+
+id INTEGER AUTO_INCREMENT, /* 1.ID */
+
+mail_address VARCHAR(255) NOT NULL, /* 2.メールアドレス */
+ 
+day VARCHAR(20) NOT NULL,/* 3.日付 */
+
+sleep_goal INTEGER(5), /* 4.睡眠時間目標 */
+
+meal_goal INTEGER(5), /* 5.食事バランス目標 */
+
+free_goal INTEGER(5), /* 6.自由目標 */
+
+write_free_goal VARCHAR(255), /* 7.記述自由目標 */
+
+PRIMARY KEY (id) /* 主キー*/
+
+);
+
+/*goals テーブルにテスト用のデータを登録*/
+INSERT INTO goals (id, mail_address, day, sleep_goal, meal_goal, free_goal, write_free_goal) VALUES (null, 'mail_address', 'day', 0, 0, 0, 'write_free_goal');
+
+/*goals テーブル表示*/
+SELECT * FROM goals;
+
+/*テーブル作成ここまで*/
+
+/*GoalsDAOで使用したSQL文*/
+SELECT * FROM goals WHERE mail_address=?;
+
+UPDATE goals SET sleep_goal=?, meal_goal=?, free_goal=?, write_free_goal=? WHERE mail_address=?;
+
+INSERT INTO goals VALUES (NULL, ?, ?, ?, ?, ?, ?);
