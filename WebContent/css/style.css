@@ -1,16 +1,4 @@
-/*文字設定の基準は 
-小見出しは
-main h2{
-  font-weight: bold;
-  font-size: 24px;
-}
 
-文字は
-main p{
-  font-size: 16px;
-  line-height: 1.8em;
-  margin-bottom: 2.0em;
-} */
 
 /*全画面共通*/
 html{
@@ -158,10 +146,17 @@ header img{
     position: relative;
     z-index: 30;
     border-radius: 12px;
+    
   }
-  
+
+   /*クリックされたら回転*/
   .checkbox:checked ~ .hamburger {
     transform: rotate(360deg);
+  }
+
+  /*クリックされたらメニューを表示する*/
+  .checkbox:checked ~ .nav-menu {
+    visibility: visible;
   }
   
   /*ハンバーガメニューの三本線*/
@@ -223,6 +218,8 @@ header img{
     margin-left: 65%;
     margin-top: 120px;
     transition: all 0.3s;
+    visibility: hidden;
+  
   }
   
   .nav-menu ul {
@@ -230,7 +227,7 @@ header img{
     margin-top: 30%;
     position: relative;
   }
-  
+
   /*文字の間隔*/
   .nav-menu li {
     text-align: center;
@@ -248,7 +245,7 @@ header img{
     /*ホバー時の文字拡大*/
     display: inline-block;       
     transition: all 0.3s ease 0s;
-    cursor: pointer
+    cursor: pointer;
   }
 
 
@@ -338,3 +335,106 @@ a:active{
 
 /*ここまでがスライド*/
 
+
+
+
+/* ここからはボイス画面のデザイン */
+/* 小見出しは */
+#voice h2{
+  font-weight: bold;
+  font-size: 24px;
+  text-align: left;
+  margin-left: 10%;
+  margin-top: 5%;
+  margin-bottom: 10%;
+}
+
+/* 文字は */
+#voice p{
+  font-size: 16px;
+  line-height: 1.8em;
+  margin-bottom: 2.0em;
+  text-align: left;
+  margin-left: 5%;
+}
+
+#voice p .point{
+  font-weight: bold;
+  font-size: 24px;
+  color: red;
+}
+
+/* 背景をしろにする */
+#voice #chara {
+  text-align: left;
+  box-shadow: 0px 0px #ffffffd4;
+}
+
+#voice #chara ul li{
+  margin-bottom: 10%;
+}
+
+#voice #chara ul li p strong{
+  font-weight: bold;
+}
+
+
+#voice #chara #register{
+  border: none;
+  width: 30%;
+  background-color: #fec20d;
+  color: #000000;
+  height: 30px;
+  margin-top: 7%;
+  margin-left: 55%;
+}
+
+
+/* ここまでがボイス画面のデザイン */
+
+/*ここから目標セットのデザイン*/
+#set h2{
+  font-weight: bold;
+  font-size: 24px;
+  text-align: left;
+  margin-left: 10%;
+  margin-top: 5%;
+}
+
+#set .koumoku {
+  text-align: left;
+  box-shadow: 0px 0px #ffffffd4;
+}
+
+#set .koumoku ul{
+  margin-top: 10%;
+}
+
+#set .koumoku ul p {
+  font-size: 16px;
+  line-height: 1.8em;
+  margin-bottom: 10%;
+}
+
+#set .koumoku li {
+  margin-left: 10%;
+  margin-bottom: 10%;
+}
+
+#set .koumoku li .submit{
+  border: none;
+  width: 30%;
+  background-color: #fec20d;
+  color: #000000;
+  height: 30px;
+  margin-top: 7%;
+  margin-left: 30%;
+}
+
+#set .koumoku li #subject{
+  
+  height: 30px;
+  font-size: 20px;
+  margin-top: -20%;
+}
+/* ここまでが目標セットのデザイン */

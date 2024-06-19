@@ -64,7 +64,7 @@ public class LoginServlet extends HttpServlet {
 				}
 				else {									// ログイン失敗
 					// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
-					request.setAttribute("result",0);
+					request.setAttribute("result","メールアドレスまたはパスワードに誤りがあります");
 
 
 					// ログインページにフォワードする

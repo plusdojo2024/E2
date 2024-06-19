@@ -6,6 +6,7 @@ $(window).on("load resize", function () {
     $(".wrap").css("min-height", window_height + "px");
   });
 
+
 /*ハンバーガメニューを追従させる機能*/
 $(function(){
   // ブラウザをスクロール

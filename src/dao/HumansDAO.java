@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import model.Humans;
 
@@ -45,23 +44,29 @@ public class HumansDAO {
 			else {
 				pStmt.setString(2, "（未設定）");
 			}
-			if (Objects.equals(card.getHeight(), null)) {
+			int height = card.getHeight();
+			String height1 = String.valueOf(height);
+			if (height1.equals("") && height1!= null) {
 				pStmt.setInt(3, 0);
 			}
 			else {
-				pStmt.setInt(3, card.getHeight());
+				pStmt.setInt(3, height);
 			}
-			if (Objects.equals(card.getWeight(), null)) {
+			int weight = card.getWeight();
+			String weight1 = String.valueOf(weight);
+			if (weight1.equals("") && weight1!= null) {
 				pStmt.setInt(4, 0);
 			}
 			else {
-				pStmt.setInt(4, card.getWeight());
+				pStmt.setInt(4, weight);
 			}
-			if (Objects.equals(card.getSleepTime(), null)) {
+			int sleep_time = card.getSleepTime();
+			String sleep_time1 = String.valueOf(sleep_time);
+			if (sleep_time1.equals("") && sleep_time1 != null) {
 				pStmt.setInt(5, 0);
 			}
 			else {
-				pStmt.setInt(5, card.getSleepTime());
+				pStmt.setInt(5, sleep_time);
 			}
 
 			// SQL文を実行する
