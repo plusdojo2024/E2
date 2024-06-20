@@ -52,6 +52,7 @@ public class HumansDAO {
 			else {
 				pStmt.setInt(3, height);
 			}
+			//変えた部分--------------------------------------------------
 			int weight = card.getWeight();
 			String weight1 = String.valueOf(weight);
 			if (weight1.equals("") && weight1!= null) {
@@ -65,6 +66,7 @@ public class HumansDAO {
 			if (sleep_time1.equals("") && sleep_time1 != null) {
 				pStmt.setInt(5, 0);
 			}
+			//ここまで-----------------------------------------------------
 			else {
 				pStmt.setInt(5, sleep_time);
 			}

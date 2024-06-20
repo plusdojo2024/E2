@@ -68,6 +68,7 @@ public class MealDAO {
 	}
 
 	//検索用メソッド
+
 	public List<Meal> select(Meal meal) {
 		Connection conn = null;
 		List<Meal> cardList = new ArrayList<Meal>();
@@ -80,10 +81,11 @@ public class MealDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/data/LRD", "sa", "");
 
 			// SQL文を準備する
-			String sql = "SELECT * FROM Meals WHERE mail_address = ?";
+			String sql = "SELECT * FROM Meals WHERE mail_address = ? AND day = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			// SQL文を完成させる
 			pStmt.setString(1, meal.getMailAddress());
+			pStmt.setString(2, meal.getDay());
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
