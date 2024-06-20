@@ -372,10 +372,13 @@ a:active{
 
 #voice #chara ul li{
   margin-bottom: 10%;
+  float: left;
 }
 
 #voice #chara ul li p strong{
   font-weight: bold;
+  
+
 }
 
 
@@ -385,10 +388,33 @@ a:active{
   background-color: #fec20d;
   color: #000000;
   height: 30px;
-  margin-top: 7%;
-  margin-left: 55%;
+  float: right;
+  margin-top: 12%;
+margin-right: 13%;
+ 
+
 }
 
+#voice .charaimg{
+  margin-top: 4%;
+  margin-left: -10%;
+  float: left;
+}
+
+#voice .btn{
+  margin-top: 10%;
+  margin-left: 0%;
+  float: left;
+}
+
+#voice .btn img{
+  margin: 0;
+}
+
+
+#voice #slide{
+  height: 215px;
+}
 
 /* ここまでがボイス画面のデザイン */
 
@@ -438,3 +464,134 @@ a:active{
   margin-top: -20%;
 }
 /* ここまでが目標セットのデザイン */
+
+/*ここから合否結果画面*/
+/*吹き出し*/
+#result div {
+  position: relative;
+  padding: 1rem 1rem 1rem 1.5rem;
+  border-radius: 5px;
+  box-shadow: 4px 4px #2f6aaed4;
+  font-weight: bold;
+  font-size: 26px;
+  background-color: #ffffff;
+  width: 80%;
+  margin-left: 5%;
+ margin-bottom: 5%;
+}
+
+#result div:before,
+#result div:after {
+  position: absolute;
+  left: 65%;
+  height: 0;
+  width: 0;
+  border: solid transparent;
+  content: "";
+}
+
+#result div:before {
+  top: 100%;
+  margin-left: -12px;
+  border-color: transparent;
+  border-top-color: #2f6aaed4;
+  border-right-color: #2f6aaed4;
+  border-width: 10px;
+}
+
+#result div:after {
+  top: 99%;
+  margin-left: -7px;
+  border-color: transparent;
+  border-top-color: white;
+  border-right-color: white;
+  border-width: 6.5px;
+}
+
+
+/**/
+
+#result .coment {
+  position: relative;
+  padding: 1rem 1rem 1rem 1.5rem;
+  border-radius: 5px;
+  box-shadow: 4px 4px #2f6aaed4;
+  font-weight: bold;
+  font-size: 26px;
+  background-color: #ffffff;
+  width: 80%;
+  margin-left: 5%;
+ margin-bottom: 5%;
+}
+
+#result .coment:before,
+#result .coment:after {
+  position: absolute;
+  left: 65%;
+  height: 0;
+  width: 0;
+  border: solid transparent;
+  content: "";
+}
+
+#result .coment:before {
+  top: 100%;
+  margin-left: -12px;
+  border-color: transparent;
+  border-top-color: #2f6aaed4;
+  border-right-color: #2f6aaed4;
+  border-width: 10px;
+}
+
+#result .coment:after {
+  top: 99%;
+  margin-left: -7px;
+  border-color: transparent;
+  border-top-color: white;
+  border-right-color: white;
+  border-width: 6.5px;
+}
+
+/*文字*/
+#result .main{
+  display: flex;
+  margin-left: 0;
+}
+
+#result .coment{
+  width: 90%;
+  margin-left: 15%;
+}
+
+#result .coment p{
+  font-size: 16px;
+  line-height: 1.8em;
+  text-align: left;
+}
+#result .coment .btn{
+ text-align: right;
+ 
+}
+
+#result .chara{
+  width: 100%;
+  height: 100%;
+  text-align: right;
+  margin-top: 10%;
+  padding: 0 -10% 0 -10%;
+  margin-left: 10%;
+}
+
+#result .gouhi h2{
+  margin-bottom: 10%;
+}
+
+#result .gouhi .ten{
+  font-size: 150%;
+  color: red;
+}
+
+#result .gouhi p{
+  margin-bottom: 10%;
+}
+/*ここまで合否結果画面*/

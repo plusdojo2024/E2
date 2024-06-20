@@ -22,6 +22,7 @@ public class VoiceServlet extends HttpServlet {
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			// もしもログインしていなかったらログインサーブレットにリダイレクトする
 			HttpSession session = request.getSession();
+
 			if (session.getAttribute("mail_address") == null) {
 				response.sendRedirect("/E2/LoginServlet");
 				return;
