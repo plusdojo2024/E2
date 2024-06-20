@@ -76,6 +76,7 @@ public class GraphServlet extends HttpServlet {
 		MealDAO mealDAO = new MealDAO();
 		for (int x = 0; x <day.size(); x++) {
 			Meal meal = new Meal();
+			meal.setDay(day.get(x));
 			meal.setMailAddress(loginUser.getMailAddress());
 			List<Meal> selectList = mealDAO.select(meal);
 			if (selectList != null) {
