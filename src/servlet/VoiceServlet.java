@@ -91,7 +91,7 @@ public class VoiceServlet extends HttpServlet {
 			return;
 		}
 
-		// リクエストパラメータを取得する
+		// リクエストパラメータを取得する。
 		request.setCharacterEncoding("UTF-8");
 		String choice1 = request.getParameter("choice1");
 		String choice2 = request.getParameter("choice2");
