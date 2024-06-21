@@ -31,9 +31,15 @@ public class SetServlet extends HttpServlet {
 		String mailAddress = loginUser.getMailAddress();
 		GoalsDAO gDao = new GoalsDAO();
 		List<Goal> cardList = gDao.select(new Goal(0,mailAddress,"",0,0,0,""));
+		Goal goal = null;
+		if(cardList != null) {
+			if(cardList.size() != 0) {
+				goal = cardList.get(0);
+			}
+		}
 
 		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("cardList", cardList);  //cardListが空だったらjspでデータがないと表示
+		request.setAttribute("goals", goal);  //cardListが空だったらjspでデータがないと表示
 
 		// ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/set.jsp");
@@ -96,7 +102,8 @@ public class SetServlet extends HttpServlet {
 			}
 		}
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/set.jsp");
-		dispatcher.forward(request, response);
+		doGet(request, response);
+
+
 	}
 }
