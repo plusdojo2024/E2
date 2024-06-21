@@ -37,7 +37,7 @@ public class HomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		session.setAttribute("mail_address", "mail_address");
+
 		if (session.getAttribute("mail_address") == null) {
 			response.sendRedirect("/E2/LoginServlet");
 			return;
@@ -138,7 +138,7 @@ public class HomeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		session.setAttribute("mail_address", "mail_address");
+
 		Object obj = session.getAttribute("mail_address");
 		String mailAddress = obj.toString();
 
