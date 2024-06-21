@@ -20,6 +20,7 @@ import dao.MealDAO;
 import dao.UsersDAO;
 import model.Humans;
 import model.Login;
+import model.LoginUser;
 import model.Meal;
 import model.User;
 
@@ -44,8 +45,8 @@ public class HomeServlet extends HttpServlet {
 		}
 //		String mailAddressTest = "aoki@gmail.com";
 
-		Object obj =  session.getAttribute("mail_address");
-		String mailAddress = obj.toString();
+		LoginUser loginUser = (LoginUser) session.getAttribute("mail_address");
+		String mailAddress = loginUser.getMailAddress();
 		LocalDate currentDate = LocalDate.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		String formattedDate = currentDate.format(formatter);

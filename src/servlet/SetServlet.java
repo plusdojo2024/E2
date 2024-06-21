@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.GoalsDAO;
 import model.Goal;
+import model.LoginUser;
 
 @WebServlet("/SetServlet")
 public class SetServlet extends HttpServlet {
@@ -26,8 +27,8 @@ public class SetServlet extends HttpServlet {
 			response.sendRedirect("/E2/LoginServlet");
 			return;
 		}
-		Object obj = session.getAttribute("mail_address");
-		String mailAddress = obj.toString();
+		LoginUser loginUser = (LoginUser) session.getAttribute("mail_address");
+		String mailAddress = loginUser.getMailAddress();
 		GoalsDAO gDao = new GoalsDAO();
 		List<Goal> cardList = gDao.select(new Goal(0,mailAddress,"",0,0,0,""));
 
