@@ -142,8 +142,8 @@ public class HomeServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 
-		Object obj = session.getAttribute("mail_address");
-		String mailAddress = obj.toString();
+		LoginUser loginUser = (LoginUser) session.getAttribute("mail_address");
+		String mailAddress = loginUser.getMailAddress();
 
 		LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");

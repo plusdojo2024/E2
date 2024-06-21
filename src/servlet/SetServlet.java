@@ -48,8 +48,8 @@ public class SetServlet extends HttpServlet {
 			response.sendRedirect("/E2/LoginServlet");
 			return;
 		}
-		Object obj = session.getAttribute("mail_address");
-		String mailAddress = obj.toString();
+		LoginUser loginUser = (LoginUser) session.getAttribute("mail_address");
+		String mailAddress = loginUser.getMailAddress();
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String parameter1 = request.getParameter("sleep_goal");
