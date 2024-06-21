@@ -58,7 +58,7 @@
 	let form = document.getElementById("formObj");
 	let error = document.getElementById("error");
 	form.onsubmit = function() {
-	if(form.mail_address.value || !form.password.value){
+	if(!form.mail_address.value || !form.password.value){
 		error.textContent = "メールアドレス、パスワードを入力してください。";
 		return false;
 		}
