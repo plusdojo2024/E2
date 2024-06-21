@@ -69,10 +69,12 @@ public class HomeServlet extends HttpServlet {
 			UsersDAO uDao = new UsersDAO();
 			List<User> userList = uDao.selectMailAddress(new User(0,mailAddress,"password","day",0,0,0,0));
 			if(userList != null) {
-				User user = userList.get(0);
-				user.setPoint(user.getPoint() + 1);
-				if(uDao.updatePoint(user)) {
-					request.setAttribute("login_message", "ログインボーナスとして1ポイント付与しました");
+				if(userList.size() != 0) {
+					User user = userList.get(0);
+					user.setPoint(user.getPoint() + 1);
+					if(uDao.updatePoint(user)) {
+						request.setAttribute("login_message", "ログインボーナスとして1ポイント付与しました");
+					}
 				}
 			}
 			//最新ログイン日をLoginTableに追加
