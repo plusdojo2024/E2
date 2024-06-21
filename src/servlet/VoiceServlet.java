@@ -96,16 +96,24 @@ public class VoiceServlet extends HttpServlet {
 		String choice1 = request.getParameter("choice1");
 		String choice2 = request.getParameter("choice2");
 		String choice3 = request.getParameter("choice3");
-		Object obj = session.getAttribute("mail_address");
-		String mailAddress = obj.toString();
+		LoginUser loginUser = (LoginUser) session.getAttribute("mail_address");
+		String mailAddress = loginUser.getMailAddress();
 		UsersDAO uDao = new UsersDAO();
 		User user = new User(0,mailAddress,"","",0,0,0,0);
 		List<User> userList = uDao.selectMailAddress(user);
-		User user1 = userList.get(0);
-		int point = user1.getPoint();
-		int character1 = user1.getCharacter1();
-		int character2 = user1.getCharacter2();
-		int character3 = user1.getCharacter3();
+		int point = 0;
+		int character1 = 0;
+		int character2 = 0;
+		int character3 = 0;
+		if(userList != null) {
+			if(userList.size() !=0) {
+				User user1 = userList.get(0);
+				point = user1.getPoint();
+				character1 = user1.getCharacter1();
+				character2 = user1.getCharacter2();
+				character3 = user1.getCharacter3();
+			}
+		}
 		if (choice1 != null) {
                     // choice1 が選択された場合の処理
                 	if(character1==1 && point<20){
