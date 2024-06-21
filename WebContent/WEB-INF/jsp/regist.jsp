@@ -40,21 +40,42 @@
     <main><br>
     <h1>アカウント新規作成</h1><br>
 
- 	<form method="post" action="/E2/RegistServlet" >
+ 	<form method="post" action="/E2/RegistServlet" id = "formObj">
     <p id = "messeage">メールアドレス、パスワードは半角英数字で<br>
     入力してください。<br><br>
     パスワードは大文字、小文字、数字、記号を<br>
     組み合わせ、10桁以上の長さにしてください。<br><br></p>
     <p id = "mail">メールアドレス<input type="text" name="mail_address"><br><br></p>
-    パスワード<input type="text" name="password"><br><br>
+    パスワード<input type="password" name="password"><br><br>
     <input type="submit" value="登録" id = "regist">
 	</form><br>
-	<h1>${error}</h1>
+	<h1 id= "error">${error}</h1>
     </main>
 
 
 
 </div>
+<script>
+
+	//エラーメッセージを表示させるjavascript
+	let form = document.getElementById("formObj");
+	let error = document.getElementById("error");
+
+	form.onsubmit = function(){
+
+	if(!form.mail_address.value || !form.password.value){//!form.name属性.value(ユーザーが入力した値)=フォームに入っている値がない
+
+		error.textContent = "メールアドレス、パスワードを入力してください。";
+		return false;
+
+		}
+	};
+
+
+
+
+
+</script>
 </body>
 </html>
 

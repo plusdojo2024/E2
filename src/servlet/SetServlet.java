@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.GoalsDAO;
 import model.Goal;
+import model.LoginUser;
 
 @WebServlet("/SetServlet")
 public class SetServlet extends HttpServlet {
@@ -26,13 +27,19 @@ public class SetServlet extends HttpServlet {
 			response.sendRedirect("/E2/LoginServlet");
 			return;
 		}
-		Object obj = session.getAttribute("mail_address");
-		String mailAddress = obj.toString();
+		LoginUser loginUser = (LoginUser) session.getAttribute("mail_address");
+		String mailAddress = loginUser.getMailAddress();
 		GoalsDAO gDao = new GoalsDAO();
 		List<Goal> cardList = gDao.select(new Goal(0,mailAddress,"",0,0,0,""));
+		Goal goal = null;
+		if(cardList != null) {
+			if(cardList.size() != 0) {
+				goal = cardList.get(0);
+			}
+		}
 
 		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("cardList", cardList);  //cardListが空だったらjspでデータがないと表示
+		request.setAttribute("goals", goal);  //cardListが空だったらjspでデータがないと表示
 
 		// ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/set.jsp");
@@ -47,8 +54,8 @@ public class SetServlet extends HttpServlet {
 			response.sendRedirect("/E2/LoginServlet");
 			return;
 		}
-		Object obj = session.getAttribute("mail_address");
-		String mailAddress = obj.toString();
+		LoginUser loginUser = (LoginUser) session.getAttribute("mail_address");
+		String mailAddress = loginUser.getMailAddress();
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String parameter1 = request.getParameter("sleep_goal");
@@ -95,7 +102,8 @@ public class SetServlet extends HttpServlet {
 			}
 		}
 
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/set.jsp");
-		dispatcher.forward(request, response);
+		doGet(request, response);
+
+
 	}
 }

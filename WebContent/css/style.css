@@ -1,5 +1,6 @@
 
 
+
 /*全画面共通*/
 html{
   scroll-behavior: smooth;/*ページ内リンクをクリックすると上にスクロールする*/
@@ -209,13 +210,13 @@ header img{
   
   .nav-menu {
     position: absolute;
-    width: 30%;
+    width: 40%;
     height: auto;
     opacity: 0;
     color: #333;
     top: 0;
     left: 0;
-    margin-left: 65%;
+    margin-left: 60%;
     margin-top: 120px;
     transition: all 0.3s;
     visibility: hidden;
@@ -339,6 +340,9 @@ a:active{
 
 
 /* ここからはボイス画面のデザイン */
+.voi{
+  width: 100%;
+}
 /* 小見出しは */
 #voice h2{
   font-weight: bold;
@@ -351,7 +355,7 @@ a:active{
 
 /* 文字は */
 #voice p{
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.8em;
   margin-bottom: 2.0em;
   text-align: left;
@@ -372,10 +376,13 @@ a:active{
 
 #voice #chara ul li{
   margin-bottom: 10%;
+  float: left;
 }
 
 #voice #chara ul li p strong{
   font-weight: bold;
+  
+
 }
 
 
@@ -385,10 +392,33 @@ a:active{
   background-color: #fec20d;
   color: #000000;
   height: 30px;
-  margin-top: 7%;
-  margin-left: 55%;
+  float: right;
+  margin-top: 0%;
+margin-right: 5%;
+ 
+
 }
 
+#voice .charaimg{
+  margin-top: 4%;
+  margin-left: -10%;
+  float: left;
+}
+
+#voice .btn{
+  margin-top: 0%;
+  margin-left: 10%;
+  float: left;
+}
+
+#voice .btn img{
+  margin: 0;
+}
+
+
+#voice #slide{
+  height: 215px;
+}
 
 /* ここまでがボイス画面のデザイン */
 
@@ -432,9 +462,140 @@ a:active{
 }
 
 #set .koumoku li #subject{
-  
+  width: 100%;
   height: 30px;
   font-size: 20px;
   margin-top: -20%;
 }
 /* ここまでが目標セットのデザイン */
+
+/*ここから合否結果画面*/
+/*吹き出し*/
+#result div {
+  position: relative;
+  padding: 1rem 1rem 1rem 1.5rem;
+  border-radius: 5px;
+  box-shadow: 4px 4px #2f6aaed4;
+  font-weight: bold;
+  font-size: 26px;
+  background-color: #ffffff;
+  width: 80%;
+  margin-left: 5%;
+ margin-bottom: 5%;
+}
+
+#result div:before,
+#result div:after {
+  position: absolute;
+  left: 65%;
+  height: 0;
+  width: 0;
+  border: solid transparent;
+  content: "";
+}
+
+#result div:before {
+  top: 100%;
+  margin-left: -12px;
+  border-color: transparent;
+  border-top-color: #2f6aaed4;
+  border-right-color: #2f6aaed4;
+  border-width: 10px;
+}
+
+#result div:after {
+  top: 99%;
+  margin-left: -7px;
+  border-color: transparent;
+  border-top-color: white;
+  border-right-color: white;
+  border-width: 6.5px;
+}
+
+
+/**/
+
+#result .coment {
+  position: relative;
+  padding: 1rem 1rem 1rem 1.5rem;
+  border-radius: 5px;
+  box-shadow: 4px 4px #2f6aaed4;
+  font-weight: bold;
+  font-size: 26px;
+  background-color: #ffffff;
+  width: 80%;
+  margin-left: 5%;
+ margin-bottom: 5%;
+}
+
+#result .coment:before,
+#result .coment:after {
+  position: absolute;
+  left: 65%;
+  height: 0;
+  width: 0;
+  border: solid transparent;
+  content: "";
+}
+
+#result .coment:before {
+  top: 100%;
+  margin-left: -12px;
+  border-color: transparent;
+  border-top-color: #2f6aaed4;
+  border-right-color: #2f6aaed4;
+  border-width: 10px;
+}
+
+#result .coment:after {
+  top: 99%;
+  margin-left: -7px;
+  border-color: transparent;
+  border-top-color: white;
+  border-right-color: white;
+  border-width: 6.5px;
+}
+
+/*文字*/
+#result .main{
+  display: flex;
+  margin-left: 0;
+}
+
+#result .coment{
+  width: 90%;
+  margin-left: 15%;
+}
+
+#result .coment p{
+  font-size: 16px;
+  line-height: 1.8em;
+  text-align: left;
+}
+#result .coment .btn{
+ text-align: right;
+ 
+}
+
+#result .chara{
+  width: 100%;
+  height: 100%;
+  text-align: right;
+  margin-top: 10%;
+  padding: 0 -10% 0 -10%;
+  margin-left: 10%;
+}
+
+#result .gouhi h2{
+  margin-bottom: 10%;
+}
+
+#result .gouhi .ten{
+  font-size: 150%;
+  color: red;
+}
+
+#result .gouhi p{
+  margin-bottom: 10%;
+}
+/*ここまで合否結果画面*/

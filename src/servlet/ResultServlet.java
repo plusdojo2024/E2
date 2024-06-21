@@ -18,6 +18,7 @@ import dao.MealDAO;
 import dao.UsersDAO;
 import model.Goal;
 import model.Humans;
+import model.LoginUser;
 import model.Meal;
 import model.User;
 import model.WeekDay;
@@ -35,8 +36,8 @@ public class ResultServlet extends HttpServlet {
 				return;
 			}
 
-			Object obj = session.getAttribute("mail_address");
-			String mailAddress = obj.toString();
+			LoginUser loginUser = (LoginUser) session.getAttribute("mail_address");
+			String mailAddress = loginUser.getMailAddress();
 			UsersDAO uDao = new UsersDAO();
 			User user = new User(0,mailAddress,"","",0,0,0,0);
 			List<User> userList = uDao.selectMailAddress(user);

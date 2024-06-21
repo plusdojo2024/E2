@@ -40,8 +40,7 @@ public class ReviewServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 
-		//仮でログイン処理
-		session.setAttribute("mail_address", new LoginUser("mail_address"));
+
 		if (session.getAttribute("mail_address") == null) {
 			response.sendRedirect("/E2/LoginServlet");
 			return;

@@ -61,7 +61,7 @@ public class RegistServlet extends HttpServlet {
 					HttpSession session = request.getSession();
 					LoginUser loginUser = new LoginUser(mailAddress);
 
-					session.setAttribute("login_user",loginUser);
+					session.setAttribute("mail_address",loginUser);
 
 					// ホームサーブレットにリダイレクトする
 					//メールアドレス、パスワードを入力してください

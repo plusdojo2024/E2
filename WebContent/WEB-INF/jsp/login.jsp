@@ -40,11 +40,12 @@
     <main><br>
 
 
- 	<form method="post" action="/E2/LoginServlet" >
+ 	<form method="post" action="/E2/LoginServlet" id="formObj" >
 
     <p id = "mail">メールアドレス<input type="text" name="mail_address"><br><br></p>
-    パスワード<input type="text" name="password"><br><br>
+    パスワード<input type="password" name="password"><br><br>
     <input type="submit" value="ログイン" id = "login"><br><br>
+    <p id= "error">${result}</p>
 	<a href = /E2/RegistServlet>新規登録はこちら</a>
 	</form><br>
 
@@ -53,5 +54,16 @@
 
 
 </div>
+<script>
+	let form = document.getElementById("formObj");
+	let error = document.getElementById("error");
+	form.onsubmit = function() {
+	if(!form.mail_address.value || !form.password.value){
+		error.textContent = "メールアドレス、パスワードを入力してください。";
+		return false;
+		}
+	};
+
+</script>
 </body>
 </html>

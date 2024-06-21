@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UsersDAO;
+import model.LoginUser;
 import model.User;
 
 
@@ -22,6 +23,7 @@ public class VoiceServlet extends HttpServlet {
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			// もしもログインしていなかったらログインサーブレットにリダイレクトする
 			HttpSession session = request.getSession();
+
 			if (session.getAttribute("mail_address") == null) {
 				response.sendRedirect("/E2/LoginServlet");
 				return;
@@ -29,16 +31,24 @@ public class VoiceServlet extends HttpServlet {
 
 
 			//ボイス購入ボタンの分岐
-			Object obj = session.getAttribute("mail_address");
-			String mailAddress = obj.toString();
+			LoginUser loginUser = (LoginUser) session.getAttribute("mail_address");
+			String mailAddress = loginUser.getMailAddress();
 			UsersDAO uDao = new UsersDAO();
 			User user = new User(0,mailAddress,"","",0,0,0,0);
 			List<User> userList = uDao.selectMailAddress(user);
-			User user1 = userList.get(0);
-			int point = user1.getPoint();
-			int character1 = user1.getCharacter1();
-			int character2 = user1.getCharacter2();
-			int character3 = user1.getCharacter3();
+			int point = 0;
+			int character1 = 0;
+			int character2 = 0;
+			int character3 = 0;
+			if(userList != null) {
+				if(userList.size() !=0) {
+					User user1 = userList.get(0);
+					point = user1.getPoint();
+					character1 = user1.getCharacter1();
+					character2 = user1.getCharacter2();
+					character3 = user1.getCharacter3();
+				}
+			}
 			if(point < 20 && character1 == 1) {
 				request.setAttribute("choice1","購入できません");
 			}else if(point >= 20 && character1 == 1) {
@@ -76,27 +86,34 @@ public class VoiceServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		session.setAttribute("mail_address", "mail_address");
 		if (session.getAttribute("mail_address") == null) {
 			response.sendRedirect("/E2/LoginServlet");
 			return;
 		}
 
-		// リクエストパラメータを取得する
+		// リクエストパラメータを取得する。
 		request.setCharacterEncoding("UTF-8");
 		String choice1 = request.getParameter("choice1");
 		String choice2 = request.getParameter("choice2");
 		String choice3 = request.getParameter("choice3");
-		Object obj = session.getAttribute("mail_address");
-		String mailAddress = obj.toString();
+		LoginUser loginUser = (LoginUser) session.getAttribute("mail_address");
+		String mailAddress = loginUser.getMailAddress();
 		UsersDAO uDao = new UsersDAO();
 		User user = new User(0,mailAddress,"","",0,0,0,0);
 		List<User> userList = uDao.selectMailAddress(user);
-		User user1 = userList.get(0);
-		int point = user1.getPoint();
-		int character1 = user1.getCharacter1();
-		int character2 = user1.getCharacter2();
-		int character3 = user1.getCharacter3();
+		int point = 0;
+		int character1 = 0;
+		int character2 = 0;
+		int character3 = 0;
+		if(userList != null) {
+			if(userList.size() !=0) {
+				User user1 = userList.get(0);
+				point = user1.getPoint();
+				character1 = user1.getCharacter1();
+				character2 = user1.getCharacter2();
+				character3 = user1.getCharacter3();
+			}
+		}
 		if (choice1 != null) {
                     // choice1 が選択された場合の処理
                 	if(character1==1 && point<20){

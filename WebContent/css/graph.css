@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+.main{
+    margin-top: 5%;
+}
+.main h2{
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 10%;
+  }
+.hyou h2 {
+    margin-bottom: -10%;
+}
+
+  main p{
+    font-size: 16px;
+    line-height: 1.8em;
+    margin-bottom: 2.0em;
+  }
+
+.humanTable th, .humanTable td {
+  border: 1px solid #DBDBDB;
+
+
+}
+
+
+.mealsTable th,.mealsTable td{
+    border: 1px solid #DBDBDB;
+}
+
+table.humanTable {
+	margin-top: 2px;
+    width: 100%;
+}
+
+table.humanTable>tbody>tr>td{
+    font-size: 16px;
+    line-height: 1.8em;
+    margin-bottom: 2.0em;
+    padding-top:1px;
+    padding-bottom: 1px;
+}
+.mealsTable{
+    margin-top: 2px;
+    width: 100%;
+}
+
+
+table.mealsTable>tbody>tr>td{
+    font-size: 16px;
+    line-height: 1.8em;
+    margin-bottom: 2.0em;
+    padding-top: 1px;
+    padding-bottom: 1px;
+}

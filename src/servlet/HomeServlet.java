@@ -20,6 +20,7 @@ import dao.MealDAO;
 import dao.UsersDAO;
 import model.Humans;
 import model.Login;
+import model.LoginUser;
 import model.Meal;
 import model.User;
 
@@ -42,9 +43,10 @@ public class HomeServlet extends HttpServlet {
 			response.sendRedirect("/E2/LoginServlet");
 			return;
 		}
+//		String mailAddressTest = "aoki@gmail.com";
 
-		Object obj =  session.getAttribute("mail_address");
-		String mailAddress = obj.toString();
+		LoginUser loginUser = (LoginUser) session.getAttribute("mail_address");
+		String mailAddress = loginUser.getMailAddress();
 		LocalDate currentDate = LocalDate.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		String formattedDate = currentDate.format(formatter);
@@ -68,10 +70,12 @@ public class HomeServlet extends HttpServlet {
 			UsersDAO uDao = new UsersDAO();
 			List<User> userList = uDao.selectMailAddress(new User(0,mailAddress,"password","day",0,0,0,0));
 			if(userList != null) {
-				User user = userList.get(0);
-				user.setPoint(user.getPoint() + 1);
-				if(uDao.updatePoint(user)) {
-					request.setAttribute("login_message", "ログインボーナスとして1ポイント付与しました");
+				if(userList.size() != 0) {
+					User user = userList.get(0);
+					user.setPoint(user.getPoint() + 1);
+					if(uDao.updatePoint(user)) {
+						request.setAttribute("login_message", "ログインボーナスとして1ポイント付与しました");
+					}
 				}
 			}
 			//最新ログイン日をLoginTableに追加
@@ -137,9 +141,9 @@ public class HomeServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		HttpSession session = request.getSession();
-		session.setAttribute("mail_address", "mail_address");
-		Object obj = session.getAttribute("mail_address");
-		String mailAddress = obj.toString();
+
+		LoginUser loginUser = (LoginUser) session.getAttribute("mail_address");
+		String mailAddress = loginUser.getMailAddress();
 
 		LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
