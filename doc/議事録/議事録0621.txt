@@ -1,0 +1,22 @@
+《記入者》戸松彩夏《記入日》2024/06/21
+
+目標：コーディングを終わらせる
+
+【午前】
+戸松　set.jsp　css
+浦島　テスト、rezult.jsp
+慶保＆時田　発表用資料
+尾森　home.jsp
+
+【午後】
+戸松　grapu.jsp voice.jsp css　
+浦島　テスト、rezult.jsp
+慶保＆時田　発表用資料
+尾森　home.jsp css
+
+
+進捗
+・サーブレットは完成
+・jspはreviewとresultが残っている
+・発表資料はブラッシュアップの必要あり
+・テスト資料は未完成
