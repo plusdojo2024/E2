@@ -19,6 +19,7 @@ import dao.MealDAO;
 import dao.UsersDAO;
 import model.Goal;
 import model.Humans;
+import model.LoginUser;
 import model.Meal;
 import model.User;
 import model.WeekDay;
@@ -30,14 +31,14 @@ public class ResultServlet extends HttpServlet {
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			// もしもログインしていなかったらログインサーブレットにリダイレクトする
 			HttpSession session = request.getSession();
-
+			session.setAttribute("mail_address", new LoginUser("mail_address"));
 			if (session.getAttribute("mail_address") == null) {
 				response.sendRedirect("/E2/LoginServlet");
 				return;
 			}
 
-			Object obj = session.getAttribute("mail_address");
-			String mailAddress = obj.toString();
+			LoginUser loginUser = (LoginUser) session.getAttribute("mail_address");
+			String mailAddress = loginUser.getMailAddress();
 			UsersDAO uDao = new UsersDAO();
 			User user = new User(0,mailAddress,"","",0,0,0,0);
 			List<User> userList = uDao.selectMailAddress(user);

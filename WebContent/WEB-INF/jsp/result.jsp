@@ -85,9 +85,11 @@
                 </div>
             </li>
           <li class="chara">
-                <img  src=${sentense3}  width="110%" height="110%">
+                <img  src="${sentense3}" width="100%" height="100%">
+                
           </li>
           </ul>
+          <p class="inyou">${sentense4}</p>
         </main>
     <!-- メイン終了 -->
 
@@ -96,7 +98,6 @@
       <a href="#body" class="page_top"><img src="img/icon/yazirusi.png"></a>
     </footer>
     <!-- フッター終了 -->
-<div>${sentense4}</div>
  </div>
 
  <script>
