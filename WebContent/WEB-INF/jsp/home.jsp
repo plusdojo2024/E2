@@ -115,7 +115,13 @@
          <div class="meal-entry">
             <p>メニュー:<input type="text" name="mealMenu_0"><br></p>
             <p>カロリー:<input type="text" name="kcal_0"><br></p>
-            <p>ジャンル:<input type="text" name="genre_0"><br></p>
+            <p>ジャンル:<select name="genre_0">
+            <option value="赤">赤</option>
+            <option value="緑">緑</option>
+            <option value="黄">黄</option>
+            </select><br></p>
+
+
          </div>
         <%
     		String MerrorMessage = (String)request.getAttribute("MerrorMessage");
@@ -157,12 +163,16 @@
                     <div class="meal-entry">
                     <p>メニュー:<input type="text" name="mealMenu_"><br></p>
                     <p>カロリー:<input type="text" name="kcal_"><br></p>
-                    <p>ジャンル:<input type="text" name="genre_"><br></p>
+                    <p>ジャンル:<select name="genre_">
+                    <option value="赤">赤</option>
+                    <option value="緑">緑</option>
+                    <option value="黄">黄</option>
+                    </select<br></p>
                     </div>`;
                 mealForm.insertBefore(newEntry, mealForm.querySelector('input[type="reset"]'));
                 newEntry.querySelector('input[name="mealMenu_"]').setAttribute("name", "mealMenu_" + count);
                 newEntry.querySelector('input[name="kcal_"]').setAttribute("name", "kcal_" + count);
-                newEntry.querySelector('input[name="genre_"]').setAttribute("name", "genre_" + count);
+                newEntry.querySelector('select[name="genre_"]').setAttribute("name", "genre_" + count);
             });
 
             // 身体登録機能フォームの送信時に確認ダイアログを表示する
