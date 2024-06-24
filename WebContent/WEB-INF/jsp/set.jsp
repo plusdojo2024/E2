@@ -52,10 +52,10 @@
               <li><a href="#" data-number="4"><img src="img/icon/logout.png" width="20%" height="20%">ログアウト</a></li> -->
         <nav class="nav-menu">
             <ul>
-              <li><a href="/E2Test/HomeServlet" data-number="1"><img src="img/icon/home.png" width="20%" height="20%">ホーム</a></li>
-              <li><a href="/E2Test/GraphServlet" data-number="2"><img src="img/icon/rireki.png" width="20%" height="20%">データ履歴</a></li>
-              <li><a href="/E2Test/VoiceServlet" data-number="3"><img src="img/icon/onp.png" width="20%" height="20%">ショップ</a></li>
-              <li><a href="/E2Test/LogoutServlet" data-number="4"><img src="img/icon/logout.png" width="20%" height="20%">ログアウト</a></li>
+              <li><a href="/E2/HomeServlet" data-number="1"><img src="img/icon/home.png" width="20%" height="20%">ホーム</a></li>
+              <li><a href="/E2/GraphServlet" data-number="2"><img src="img/icon/rireki.png" width="20%" height="20%">データ履歴</a></li>
+              <li><a href="/E2/VoiceServlet" data-number="3"><img src="img/icon/onp.png" width="20%" height="20%">ショップ</a></li>
+              <li><a href="/E2/LogoutServlet" data-number="4"><img src="img/icon/logout.png" width="20%" height="20%">ログアウト</a></li>
             </ul>
           </nav>
     </div>

@@ -31,7 +31,7 @@ public class ResultServlet extends HttpServlet {
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			// もしもログインしていなかったらログインサーブレットにリダイレクトする
 			HttpSession session = request.getSession();
-			session.setAttribute("mail_address", new LoginUser("mail_address"));
+
 			if (session.getAttribute("mail_address") == null) {
 				response.sendRedirect("/E2/LoginServlet");
 				return;
