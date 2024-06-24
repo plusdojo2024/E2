@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -56,8 +57,23 @@ public class ReviewServlet extends HttpServlet {
 		List<User> userList = usersDAO.selectMailAddress(user);
 		user = userList.get(0);
 
+
+
+		List<String> charaList = new ArrayList<String>();
+		if(user.getCharacter1() == 3) {
+			charaList.add("character/zundamon/zunmon001.png");
+		}
+		if(user.getCharacter2() == 3) {
+			charaList.add("character/hanamaru/manbetsu-hanamaru_mini.png");
+		}
+		if(user.getCharacter3() == 3) {
+			charaList.add("character/tumugi/春日部つむぎSD.png");
+		}
+
 		request.setAttribute("goals", goal);
 		request.setAttribute("users", user);
+		request.setAttribute("charaList", charaList);
+
 		//Review.jspにフォワード
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/review.jsp");
 		dispatcher.forward(request, response);

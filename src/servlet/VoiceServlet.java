@@ -25,7 +25,7 @@ public class VoiceServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 
 			if (session.getAttribute("mail_address") == null) {
-				response.sendRedirect("/E2/LoginServlet");
+				response.sendRedirect("/E2Test/LoginServlet");
 				return;
 			}
 
@@ -79,6 +79,7 @@ public class VoiceServlet extends HttpServlet {
 				request.setAttribute("choice3","選択済み");
 			}
 			// ボイスページにフォワードする
+			request.setAttribute("point",point);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/voice.jsp");
 			dispatcher.forward(request, response);
 		}
@@ -87,7 +88,7 @@ public class VoiceServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		if (session.getAttribute("mail_address") == null) {
-			response.sendRedirect("/E2/LoginServlet");
+			response.sendRedirect("/E2Test/LoginServlet");
 			return;
 		}
 
@@ -211,6 +212,7 @@ public class VoiceServlet extends HttpServlet {
 		request.setAttribute("choice1",a);
 		request.setAttribute("choice2",b);
 		request.setAttribute("choice3",c);
+		request.setAttribute("point",point);
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/voice.jsp");
 		dispatcher.forward(request, response);
 	}

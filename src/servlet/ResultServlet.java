@@ -3,6 +3,8 @@ package servlet;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -30,14 +32,14 @@ public class ResultServlet extends HttpServlet {
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			// もしもログインしていなかったらログインサーブレットにリダイレクトする
 			HttpSession session = request.getSession();
-
+			session.setAttribute("mail_address", "mail_address");//実験用（統合時は変更）
 			if (session.getAttribute("mail_address") == null) {
-				response.sendRedirect("/E2/LoginServlet");
+				response.sendRedirect("/E2Test/LoginServlet");
 				return;
 			}
 
-			LoginUser loginUser = (LoginUser) session.getAttribute("mail_address");
-			String mailAddress = loginUser.getMailAddress();
+			Object obj = session.getAttribute("mail_address");
+			String mailAddress = obj.toString();
 			UsersDAO uDao = new UsersDAO();
 			User user = new User(0,mailAddress,"","",0,0,0,0);
 			List<User> userList = uDao.selectMailAddress(user);
@@ -62,9 +64,9 @@ public class ResultServlet extends HttpServlet {
 			int score = 0;     //初期点数（これに加算していく）
 			int totalScore = 0;   //フラグが２の時の最大点数
 			int addPoint = 0;   //獲得point（表示point）
-			int random1 = 0;
-			int random2 = 0;
-			int random3 = 0;
+			String random1;
+			String random2;
+			String random3;
 			String result;        //合否結果
 
 			if(sleepGoal == 2) {
@@ -150,28 +152,144 @@ public class ResultServlet extends HttpServlet {
 			UsersDAO addDao = new UsersDAO();
 			addDao.updatePoint(new User(0,"mail_address","","",resetPoint,0,0,0));
 
+
+
+
+
 			if(character1 == 3) {     //選択済み
-				random1 = 1;
+				random1 = "選択済み";
 			}else {
-				random1 = 0;
+				random1 = "未選択";
 			}
 			if(character2 == 3) {     //選択済み
-				random2 = 1;
+				random2 = "選択済み";
 			}else {
-				random2 = 0;
+				random2 = "未選択";
 			}
 			if(character3 == 3) {     //選択済み
-				random3 = 1;
+				random3 = "選択済み";
 			}else {
-				random3 = 0;
+				random3 = "未選択";
+			}
+
+			String[] array = new String[3];
+			array[0] = random1;
+			array[1] = random2;
+			array[2] = random3;
+			Random random = new Random();
+			int randomIndex = random.nextInt(3);
+			String selectSentense = array[randomIndex];
+			String sentense1 = "";
+			String sentense2 = "";
+			String sentense3 = "";
+			String sentense4 = "";
+
+			while(true){
+				if(selectSentense.equals("選択済み")){
+					if(randomIndex == 0){                                                  //ずんだもん
+						if(result.equals("合格")){
+							int randomNum = random.nextInt(2);
+							if(randomNum == 0){
+								sentense1 = "やればできるじゃん。僕も鼻が高いのだっ。";
+								sentense2 = "voice/zundamon/goukaku/goukaku1.wav";
+								sentense3 = "character/zundamon/ずんだもん.png";
+								sentense4 = "VOICEVOX:ずんだもん";
+								int randomSecret = random.nextInt(2);
+								if(randomSecret == 1) {
+									sentense1 = "合格とありますが、それってあなたの感想ですよね。";
+									sentense2 = "voice/zundamon/goukaku/hiroyuki音声.mp3";
+									sentense3 = "character/zundamon/ひろゆき.png";
+									sentense4 = "Voiced by https://CoeFont.cloud　おしゃべりひろゆきメーカー";
+								}
+							}else{
+								sentense1 = "へへへへ。この調子で健康になるのだ。";
+								sentense2 = "voice/zundamon/goukaku/goukaku2.wav";
+								sentense3 = "character/zundamon/ずんだもん喜.png";
+								sentense4 = "VOICEVOX:ずんだもん";
+							}
+						}else{
+							int randomNum = random.nextInt(2);
+							if(randomNum == 0){
+								sentense1 = "おいおい、だめじゃねーか。ちゃんとえだまめくったか？";
+								sentense2 = "voice/zundamon/fugoukaku/fugoukaku1.wav";
+								sentense3 = "character/zundamon/zunmon_3002.png";
+								sentense4 = "VOICEVOX:ずんだもん";
+							}else {
+								sentense1 = "はあ、この世は結果がすべてなのだ。この査定は僕の給料にも響くのだ。。。";
+								sentense2 = "voice/zundamon/fugoukaku/fugoukaku2.wav";
+								sentense3 = "character/zundamon/zunmon_3003.png";
+								sentense4 = "VOICEVOX:ずんだもん";
+							}
+						}
+					}else if(randomIndex == 1){
+						if(result.equals("合格")){
+							int randomNum = random.nextInt(2);
+							if(randomNum == 0){
+								sentense1 = "さっすが、やっぱり努力家ちゃんだね！。あーしも嬉しい！";
+								sentense2 = "voice/tumugi/goukaku/goukaku1.wav";
+								sentense3 = "character/tumugi/春日部つむぎSD.png";
+								sentense4 = "VOICEVOX:春日部つむぎ";
+							}else{
+								sentense1 = "いいねいいねーー、じゃあー、ご褒美に埼玉で、一緒にごはん、食べよっ。";
+								sentense2 = "voice/tumugi/goukaku/goukaku2.wav";
+								sentense3 = "character/tumugi/春日部つむぎ１.png";
+								sentense4 = "VOICEVOX:春日部つむぎ　立ち絵：坂本アヒル";
+							}
+						}else{
+							int randomNum = random.nextInt(2);
+							if(randomNum == 0){
+								sentense1 = "え、ふーーーん。まじでいってんの。次は、結果、だしてね。";
+								sentense2 = "voice/tumugi/fugoukaku/fugoukaku2.wav";
+								sentense3 = "character/tumugi/春日部つむぎ４.png";
+								sentense4 = "VOICEVOX:春日部つむぎ　立ち絵：坂本アヒル";
+							}else {
+								sentense1 = "はあー、がち、だるいんですけど。その空っぽの頭で反省しな。";
+								sentense2 = "voice/tumugi/fugoukaku/fugoukaku1.wav";
+								sentense3 = "character/tumugi/春日部つむぎ３.png";
+								sentense4 = "VOICEVOX:春日部つむぎ　立ち絵：坂本アヒル";
+							}
+						}
+					}else{
+						if(result.equals("合格")){
+							int randomNum = random.nextInt(2);
+							if(randomNum == 0){
+								sentense1 = "達成ーおめでとうっ。はい、花丸！";
+								sentense2 = "voice/hanamaru/goukaku/goukaku1.wav";
+								sentense3 = "character/hanamaru/manbetsu-hanamaru_mini_2.png";
+								sentense4 = "VOICEVOX:満別花丸";
+							}else{
+								sentense1 = "うわあー、すごいね！やればできる子、君は満点！";
+								sentense2 = "voice/hanamaru/goukaku/goukaku2.wav";
+								sentense3 = "character/hanamaru/manbetsu-hanamaru_mini_3.png";
+								sentense4 = "VOICEVOX:満別花丸";
+							}
+						}else{
+							int randomNum = random.nextInt(2);
+							if(randomNum == 0){
+								sentense1 = "うーん、不合格だがら、君わーーー、ぜろてん！";
+								sentense2 = "voice/hanamaru/fugoukaku/fugoukaku1.wav";
+								sentense3 = "character/hanamaru/manbetsu-hanamaru_mini.png";
+								sentense4 = "VOICEVOX:満別花丸";
+							}else {
+								sentense1 = "はあ！もう、いい加減なおしてね！";
+								sentense2 = "voice/hanamaru/fugoukaku/fugoukaku2.wav";
+								sentense3 = "character/hanamaru/花丸.png";
+								sentense4 = "VOICEVOX:満別花丸";
+							}
+						}
+					}
+					break;
+				}
+				continue;
 			}
 
 			request.setAttribute("score",score);
 			request.setAttribute("totalScore",totalScore);
-			request.setAttribute("random1",random1);
-			request.setAttribute("random2",random2);
-			request.setAttribute("random3",random3);
 			request.setAttribute("result",result);
+			request.setAttribute("sentense1",sentense1);
+			request.setAttribute("sentense2",sentense2);
+			request.setAttribute("sentense3",sentense3);
+			request.setAttribute("sentense4",sentense4);
 			request.setAttribute("addPoint",addPoint);    //これらをjspで拾う
 			// ボイスページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");

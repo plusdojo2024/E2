@@ -52,10 +52,10 @@
               <li><a href="#" data-number="4"><img src="img/icon/logout.png" width="20%" height="20%">ログアウト</a></li> -->
         <nav class="nav-menu">
             <ul>
-              <li><a href="/E2/HomeServlet" data-number="1"><img src="img/icon/home.png" width="20%" height="20%">ホーム</a></li>
-              <li><a href="/E2/GraphServlet" data-number="2"><img src="img/icon/rireki.png" width="20%" height="20%">データ履歴</a></li>
-              <li><a href="/E2/VoiceServlet" data-number="3"><img src="img/icon/onp.png" width="20%" height="20%">ショップ</a></li>
-              <li><a href="/E2/LogoutServlet" data-number="4"><img src="img/icon/logout.png" width="20%" height="20%">ログアウト</a></li>
+              <li><a href="/E2Test/HomeServlet" data-number="1"><img src="img/icon/home.png" width="20%" height="20%">ホーム</a></li>
+              <li><a href="/E2Test/GraphServlet" data-number="2"><img src="img/icon/rireki.png" width="20%" height="20%">データ履歴</a></li>
+              <li><a href="/E2Test/VoiceServlet" data-number="3"><img src="img/icon/onp.png" width="20%" height="20%">ショップ</a></li>
+              <li><a href="/E2Test/LogoutServlet" data-number="4"><img src="img/icon/logout.png" width="20%" height="20%">ログアウト</a></li>
             </ul>
           </nav>
     </div>
@@ -70,7 +70,7 @@
           <img src="character/zundamon/zunmon1.png" class="right" width="30%" height="30%">
           <div>
           <h2>目標設定</h2>
-          <form method="post" action="/eclipse_gaibu_test/SetServlet">
+          <form method="post" action="/E2/SetServlet" onsubmit="return validateForm()">
             <div class="koumoku">
               <ul>
                 <p>設定する項目を選んでください</p>
@@ -103,6 +103,24 @@
             </div>
           </form>
           </div>
+<script>
+  function validateForm() {
+    // チェックボックスの要素を取得
+    var sleepGoalCheckbox = document.getElementById('sleep_goal');
+    var mealGoalCheckbox = document.getElementById('meal_goal');
+    var freeGoalCheckbox = document.getElementById('free_goal');
+
+    // どれも選択されていない場合に警告を表示
+    if (!sleepGoalCheckbox.checked && !mealGoalCheckbox.checked && !freeGoalCheckbox.checked) {
+      alert('最低1つはチェックを入れてください');
+      return false; // フォーム送信をキャンセル
+    }
+    alert('送信が成功しました');
+    return true; // フォーム送信を許可
+  }
+</script>
+
+
         </main>
     <!-- メイン終了 -->
 
