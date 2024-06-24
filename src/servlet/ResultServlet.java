@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,7 +19,6 @@ import dao.MealDAO;
 import dao.UsersDAO;
 import model.Goal;
 import model.Humans;
-import model.LoginUser;
 import model.Meal;
 import model.User;
 import model.WeekDay;
@@ -32,9 +30,9 @@ public class ResultServlet extends HttpServlet {
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			// もしもログインしていなかったらログインサーブレットにリダイレクトする
 			HttpSession session = request.getSession();
-			session.setAttribute("mail_address", "mail_address");//実験用（統合時は変更）
+
 			if (session.getAttribute("mail_address") == null) {
-				response.sendRedirect("/E2Test/LoginServlet");
+				response.sendRedirect("/E2/LoginServlet");
 				return;
 			}
 
