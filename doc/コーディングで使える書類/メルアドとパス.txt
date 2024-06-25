@@ -1,0 +1,9 @@
+1.メールアドレス　example@mail.com
+　パスワード　P@ssw0rd123!
+　データー登録、表示用
+
+2。メールアドレス　demo@mailAddress.jp
+　 パスワード　S3cureP@ssw0rd
+　 合格不合格画面
+デモ時
+    パスワード　R@nd0mP@ssw0rd!
