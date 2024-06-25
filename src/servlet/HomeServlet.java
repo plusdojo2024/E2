@@ -39,10 +39,10 @@ public class HomeServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 
-//		if (session.getAttribute("mail_address") == null) {
-//			response.sendRedirect("/E2/LoginServlet");
-//			return;
-//		}
+		if (session.getAttribute("mail_address") == null) {
+			response.sendRedirect("/E2/LoginServlet");
+			return;
+		}
 //		String mailAddressTest = "aoki@gmail.com";
 
 		LoginUser loginUser = (LoginUser) session.getAttribute("mail_address");
