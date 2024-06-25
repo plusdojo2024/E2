@@ -25,7 +25,7 @@ public class VoiceServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 
 			if (session.getAttribute("mail_address") == null) {
-				response.sendRedirect("/E2Test/LoginServlet");
+				response.sendRedirect("/E2/LoginServlet");
 				return;
 			}
 
@@ -88,7 +88,7 @@ public class VoiceServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		if (session.getAttribute("mail_address") == null) {
-			response.sendRedirect("/E2Test/LoginServlet");
+			response.sendRedirect("/E2/LoginServlet");
 			return;
 		}
 

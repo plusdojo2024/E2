@@ -54,10 +54,10 @@
               <li><a href="#" data-number="4"><img src="img/icon/logout.png" width="20%" height="20%">ログアウト</a></li> -->
         <nav class="nav-menu">
 <ul>
-  <li><a href="/eclipse_gaibu_test/HomeServlet" data-number="1"><img src="img/icon/home.png" width="20%" height="20%">ホーム</a></li>
-  <li><a href="/eclipse_gaibu_test/SetServlet" data-number="2"><img src="img/icon/objective.png" width="20%" height="20%">目標設定</a></li>
-  <li><a href="/eclipse_gaibu_test/VoiceServlet" data-number="3"><img src="img/icon/onp.png" width="20%" height="20%">ショップ</a></li>
-  <li><a href="/eclipse_gaibu_test/LogoutServlet" data-number="4"><img src="img/icon/logout.png" width="20%" height="20%">ログアウト</a></li>
+  <li><a href="/E2/HomeServlet" data-number="1"><img src="img/icon/home.png" width="20%" height="20%">ホーム</a></li>
+  <li><a href="/E2/SetServlet" data-number="2"><img src="img/icon/objective.png" width="20%" height="20%">目標設定</a></li>
+  <li><a href="/E2/VoiceServlet" data-number="3"><img src="img/icon/onp.png" width="20%" height="20%">ショップ</a></li>
+  <li><a href="/E2/LogoutServlet" data-number="4"><img src="img/icon/logout.png" width="20%" height="20%">ログアウト</a></li>
 </ul>
           </nav>
     </div>
