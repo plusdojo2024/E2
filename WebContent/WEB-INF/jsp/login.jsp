@@ -12,7 +12,7 @@
       maximum-scale=2.0,
       user-scalable=yes" />
 
-<title>健康管理改善アプリ_ログイン</title>
+<title>健康管理改善アプリ</title>
 
 <link rel="stylesheet" href="/E2/css/reset.css">
 <link rel="stylesheet" href="/E2/css/style.css">
