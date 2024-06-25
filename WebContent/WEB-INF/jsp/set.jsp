@@ -109,11 +109,17 @@
     var sleepGoalCheckbox = document.getElementById('sleep_goal');
     var mealGoalCheckbox = document.getElementById('meal_goal');
     var freeGoalCheckbox = document.getElementById('free_goal');
+    var text = document.getElementById('subject').value;
 
     // どれも選択されていない場合に警告を表示
     if (!sleepGoalCheckbox.checked && !mealGoalCheckbox.checked && !freeGoalCheckbox.checked) {
       alert('最低1つはチェックを入れてください');
       return false; // フォーム送信をキャンセル
+    }
+
+    if(freeGoalCheckbox.checked && text.trim() === ''){
+    	alert('自由目標を記述してください');
+        return false; // フォーム送信をキャンセル
     }
     alert('送信が成功しました');
     return true; // フォーム送信を許可
