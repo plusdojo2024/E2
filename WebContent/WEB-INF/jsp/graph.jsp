@@ -33,7 +33,7 @@
  <div class="wrap">
     <!-- ヘッダー -->
   <header>
-    <img src="img/rogo.png" height="35px" width="35px">
+    <img src="img/スクリーンショット 2024-06-13 143834.png" height="35px" width="35px">
   </header>
     <!-- ヘッダー終了 -->
 
