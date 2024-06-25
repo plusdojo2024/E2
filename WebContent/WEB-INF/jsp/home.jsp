@@ -145,7 +145,7 @@
         </div>
         <div class="menu">
             <h2>食事登録ジャンル表</h2>
-            <img src="img/3食栄養素.jpg" width="95%" height="90%">
+            <img src="img/３食栄養素.jpg" width="95%" height="90%">
         </div>
      </main>
         <script>
