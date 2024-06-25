@@ -48,9 +48,14 @@ public class ReviewServlet extends HttpServlet {
 		}
 		LoginUser loginUser = (LoginUser) session.getAttribute("mail_address");
 		String mailAddress = loginUser.getMailAddress();
+		Goal goal = null;
 		GoalsDAO gDao = new GoalsDAO();
 		List<Goal> goalList = gDao.select(new Goal(0,mailAddress,"",0,0,0,""));
-		Goal goal = goalList.get(0);
+		if(goalList != null) {
+			if(goalList.size() !=0) {
+				goal = goalList.get(0);
+			}
+		}
 		UsersDAO usersDAO = new UsersDAO();
 		User user = new User();
 		user.setMailAddress(mailAddress);
