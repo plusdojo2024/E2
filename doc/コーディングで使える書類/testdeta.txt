@@ -1,0 +1,67 @@
+INSERT INTO login (id, mail_address, login_day) VALUES (null, 'demo@mailAddress.jp', '2024-06-23');
+INSERT INTO login (id, mail_address, login_day) VALUES (null, 'example@mail.com', '2024-06-24');
+INSERT INTO login (id, mail_address, login_day) VALUES (null, 'example@mail.com', '2024-06-25');
+INSERT INTO login (id, mail_address, login_day) VALUES (null, 'example@mail.com', '2024-06-26');
+INSERT INTO login (id, mail_address, login_day) VALUES (null, 'example@mail.com', '2024-06-27');
+
+INSERT INTO humans (id, mail_address, day, height, weight, sleep_time) VALUES (null, 'demo@mailAddress.jp', '2024-06-17', 170, 87, 8);
+INSERT INTO humans (id, mail_address, day, height, weight, sleep_time) VALUES (null, 'demo@mailAddress.jp', '2024-06-18', 170, 87, 7);
+INSERT INTO humans (id, mail_address, day, height, weight, sleep_time) VALUES (null, 'demo@mailAddress.jp', '2024-06-19', 170, 87, 5);
+INSERT INTO humans (id, mail_address, day, height, weight, sleep_time) VALUES (null, 'demo@mailAddress.jp', '2024-06-20', 170, 87, 8);
+INSERT INTO humans (id, mail_address, day, height, weight, sleep_time) VALUES (null, 'demo@mailAddress.jp', '2024-06-21', 170, 87, 7);
+INSERT INTO humans (id, mail_address, day, height, weight, sleep_time) VALUES (null, 'demo@mailAddress.jp', '2024-06-22', 170, 87, 6);
+INSERT INTO humans (id, mail_address, day, height, weight, sleep_time) VALUES (null, 'demo@mailAddress.jp', '2024-06-23', 170, 87, 5);
+
+INSERT INTO humans (id, mail_address, day, height, weight, sleep_time) VALUES (null, 'example@mail.com', '2024-06-24', 170, 87, 8);
+INSERT INTO humans (id, mail_address, day, height, weight, sleep_time) VALUES (null, 'example@mail.com', '2024-06-25', 170, 87, 7);
+INSERT INTO humans (id, mail_address, day, height, weight, sleep_time) VALUES (null, 'example@mail.com', '2024-06-26', 170, 87, 5);
+INSERT INTO humans (id, mail_address, day, height, weight, sleep_time) VALUES (null, 'example@mail.com', '2024-06-27', 170, 87, 8);
+
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-17', 'ごはん', '黄', 0, 1);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-17', '野菜炒め', '緑', 0, 2);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-17', '納豆', '赤', 0, 3);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-18', '味噌汁', '緑', 0, 1);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-18', '冷奴', '赤', 0, 2);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-18', 'チャーハン', '黄', 0, 3);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-19', 'ウインナー', '赤', 0, 1);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-19', 'シュウマイ', '赤', 0, 2);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-19', '焼き鳥', '赤', 0, 3);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-20', 'ラーメン', '黄', 0, 1);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-20', 'うどん', '黄', 0, 2);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-20', 'そば', '黄', 0, 3);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-21', 'ごはん', '黄', 0, 1);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-21', 'グラタン', '黄', 0, 2);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-21', 'そうめん', '黄', 0, 3);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-22', '味噌汁', '緑', 0, 1);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-22', '青椒肉絲', '緑', 0, 2);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-22', 'サラダ', '緑', 0, 3);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-23', 'ハンバーグ', '赤', 0, 1);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-23', '角煮', '赤', 0, 2);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'demo@mailAddress.jp', '2024-06-23', 'ステーキ', '赤', 0, 3);
+
+
+
+
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'example@mail.com', '2024-06-24', 'ごはん', '黄', 0, 1);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'example@mail.com', '2024-06-24', '野菜炒め', '緑', 0, 2);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'example@mail.com', '2024-06-24', '納豆', '赤', 0, 3);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'example@mail.com', '2024-06-25', '味噌汁', '緑', 0, 1);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'example@mail.com', '2024-06-25', '冷奴', '赤', 0, 2);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'example@mail.com', '2024-06-25', 'チャーハン', '黄', 0, 3);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'example@mail.com', '2024-06-26', 'ウインナー', '赤', 0, 1);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'example@mail.com', '2024-06-26', 'シュウマイ', '赤', 0, 2);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'example@mail.com', '2024-06-26', '焼き鳥', '赤', 0, 3);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'example@mail.com', '2024-06-27', 'ラーメン', '黄', 0, 1);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'example@mail.com', '2024-06-27', 'うどん', '黄', 0, 2);
+INSERT INTO meals (id, mail_address, day, meal, meal_balance, kcal, meal_number) VALUES (null, 'example@mail.com', '2024-06-27', 'そば', '黄', 0, 3);
+
+INSERT INTO goals (id, mail_address, day, sleep_goal, meal_goal, free_goal, write_free_goal) VALUES (null, 'demo@mailAddress.jp', '（未設定）', 2, 2, 2, '一日1時間運動する');
+INSERT INTO goals (id, mail_address, day, sleep_goal, meal_goal, free_goal, write_free_goal) VALUES (null, 'example@mail.com', '（未設定）', 2, 2, 2, '一日1万歩歩く');
+
+INSERT INTO users (id, mail_address, password, day, point, character1, character2, character3) VALUES (null, 'demo@mailAddress.jp', 'omRqLAy91VKxA0piIma4AQ==', 'day', 0, 3, 3, 3);
+INSERT INTO users (id, mail_address, password, day, point, character1, character2, character3) VALUES (null, 'example@mail.com', 'X+cf+qkZeEc7gE5VcKL6w==', 'day', 0, 3, 1, 1);
+
+
+
+
+
