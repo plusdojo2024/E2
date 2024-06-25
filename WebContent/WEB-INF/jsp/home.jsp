@@ -89,7 +89,7 @@
         <h2>身体登録機能</h2>
         <form id="human-form" action="HomeServlet" method="post">
         <input type="hidden" name="formType" value="hform">
-            <p>身長:<input type="text" size="25" name="height" value="${humans.height}"></p>
+            <p>身長:<input type="text" size="25" name="height" value="${humans.height}" ></p>
             <p>体重:<input type="text" size="25" name="weight" value="${humans.weight}"></p>
             <p>睡眠時間:<input type="text"  name="sleep_time" value="${humans.sleepTime}"></p>
        	<%
@@ -103,7 +103,12 @@
     		}
     	%>
             <input type="reset" id="register" name="reset" value="リセット">
+            <c:if test = "${humans.day != formattedDate}">
             <input type="submit" id="register" value=" 登 録　">
+            </c:if>
+            <c:if test = "${humans.day == formattedDate}">
+            <input type="submit" id="register_rock" value=" 登 録　" disabled>
+            </c:if>
         </form>
         </div>
 
@@ -140,7 +145,7 @@
         </div>
         <div class="menu">
             <h2>食事登録ジャンル表</h2>
-            <img src="img/３食栄養素.jpg" width="95%" height="90%">
+            <img src="img/3大栄養素.jpg" width="95%" height="90%">
         </div>
      </main>
         <script>

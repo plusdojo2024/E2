@@ -39,10 +39,10 @@ public class HomeServlet extends HttpServlet {
 
 		HttpSession session = request.getSession();
 
-		if (session.getAttribute("mail_address") == null) {
-			response.sendRedirect("/E2/LoginServlet");
-			return;
-		}
+//		if (session.getAttribute("mail_address") == null) {
+//			response.sendRedirect("/E2/LoginServlet");
+//			return;
+//		}
 //		String mailAddressTest = "aoki@gmail.com";
 
 		LoginUser loginUser = (LoginUser) session.getAttribute("mail_address");
@@ -125,6 +125,7 @@ public class HomeServlet extends HttpServlet {
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("humans", humans);  //cardListが空だったらjspでデータがないと表示
+		request.setAttribute("formattedDate",formattedDate);
 
 
 
@@ -176,7 +177,6 @@ public class HomeServlet extends HttpServlet {
 					}
 				}catch(NumberFormatException e){
 					request.setAttribute("HerrorMessege","身長、体重、睡眠時間は数値で入力してください。");
-					//System.out.println("身長、体重、睡眠時間は数値で入力してください。");
 				}
 			}
 		}
@@ -225,6 +225,7 @@ public class HomeServlet extends HttpServlet {
 		    	if(meal.equals("")||mealBalance.equals("")) {
 		    		//食事とジャンルを入力していない場合
 		    		request.setAttribute("MerrorMessage", "食事、ジャンルが入力されていません");
+
 		    		break;
 		    	}else {
 		    		try {
@@ -243,8 +244,7 @@ public class HomeServlet extends HttpServlet {
 		    }
 		}
 
-    	//結果ページにフォワードする
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/home.jsp");
-        dispatcher.forward(request, response);
+    	//doGetページを呼び出し
+		doGet(request, response);
 	}
 }
