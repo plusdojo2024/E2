@@ -4,11 +4,11 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import model.Goal;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+
+import model.Goal;
 
 public class GoalsDAO {
 	public List<Goal> select(Goal card) {
@@ -164,26 +164,23 @@ public class GoalsDAO {
 			else {
 				pStmt.setString(2, "（未設定）");
 			}
-			String getSleepGoal1 = String.valueOf(card.getSleepGoal());
-			if (getSleepGoal1 == null) {
-				pStmt.setInt(3, 1);
+			if (Objects.equals(card.getSleepGoal(), null)) {
+				pStmt.setInt(3, 0);
 			}
 			else {
-				pStmt.setInt(3, 2);
+				pStmt.setInt(3, card.getSleepGoal());
 			}
-			String mealGoal1 = String.valueOf(card.getMealGoal());
-			if (mealGoal1 == null) {
-				pStmt.setInt(4, 1);
-			}
-			else {
-				pStmt.setInt(4, 2);
-			}
-			String FreeGoal1 = String.valueOf(card.getFreeGoal());
-			if (FreeGoal1 == null) {
-				pStmt.setInt(5, 1);
+			if (Objects.equals(card.getMealGoal(), null)) {
+				pStmt.setInt(4, 0);
 			}
 			else {
-				pStmt.setInt(5, 2);
+				pStmt.setInt(4, card.getMealGoal());
+			}
+			if (Objects.equals(card.getFreeGoal(), null)) {
+				pStmt.setInt(5, 0);
+			}
+			else {
+				pStmt.setInt(5, card.getFreeGoal());
 			}
 			if (card.getWhiteFreeGoal() != null && !card.getWhiteFreeGoal().equals("")) {
 				pStmt.setString(6, card.getWhiteFreeGoal());
