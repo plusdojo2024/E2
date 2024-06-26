@@ -43,7 +43,7 @@ public class ResultServlet extends HttpServlet {
 			User user = new User(0,mailAddress,"","",0,0,0,0);
 			List<User> userList = uDao.selectMailAddress(user);
 			User user1 = userList.get(0);
-			int point1 = user1.getPoint();    //このpoint1に合格した場合の獲得pointを追加する
+
 			int character1 = user1.getCharacter1();
 			int character2 = user1.getCharacter2();
 			int character3 = user1.getCharacter3();  //フラグ確認で使う
@@ -147,9 +147,11 @@ public class ResultServlet extends HttpServlet {
 				result = "不合格";
 			}
 
-			int resetPoint = point1 + addPoint;
+
 			UsersDAO addDao = new UsersDAO();
-			addDao.updatePoint(new User(0,"mail_address","","",resetPoint,0,0,0));
+			user1.setPoint(user1.getPoint() + addPoint);
+			addDao.updatePoint(user1);
+
 
 
 
